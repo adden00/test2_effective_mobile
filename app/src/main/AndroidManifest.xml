@@ -11,7 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test2EffectiveMobile">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.cart.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.details.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.homestore.HomeStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
