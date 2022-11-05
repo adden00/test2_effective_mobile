@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Test2 Effective Mobile</string>
+    <string name="select_category">Select Category</string>
+    <string name="view_all">view all</string>
+    <string name="phones">Phones</string>
+    <string name="computers">Computers</string>
+    <string name="health">Health</string>
+    <string name="books">Books</string>
 </resources>

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
 
+    compileSdk 32
     defaultConfig {
         applicationId "com.example.test2effectivemobile"
-        minSdk 21
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -33,6 +33,10 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 

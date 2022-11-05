@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/allItem"
+    android:layout_width="75dp"
+    android:layout_height="91dp"
+    android:layout_marginStart="11dp"
+    android:layout_marginEnd="11dp"
+    android:padding="2dp">
+
+    <Button
+
+        android:id="@+id/btnCategory"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:background="@drawable/category_button_not_selected"
+        android:stateListAnimator="@null" />
+
+    <ImageView
+        android:id="@+id/imCategory"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@color/transparent"
+        android:elevation="10dp" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:fontFamily="@font/mark_pro"
+        android:gravity="center"
+        android:textColor="@color/text_color"
+        android:textFontWeight="400"
+        android:textSize="12sp" />
+
+
+</FrameLayout>

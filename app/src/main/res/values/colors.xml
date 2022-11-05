@@ -10,5 +10,11 @@
 
     <color name="splash_bg">#010035</color>
     <color name="color_primary">#FF6E4E</color>
+    <color name="home_bg">#F8F8F8</color>
+    <color name="transparent">#00000000</color>
+    <color name="text_color">#010035</color>
+    <color name="dark_ico">#B3B3C3</color>
+
+
 
 </resources>
