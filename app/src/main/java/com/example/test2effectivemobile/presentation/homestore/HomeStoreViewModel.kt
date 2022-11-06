@@ -2,16 +2,27 @@ package com.example.test2effectivemobile.presentation.homestore
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.test2effectivemobile.R
+import com.example.test2effectivemobile.common.constants.Constants
+import com.example.test2effectivemobile.domain.models.BestSellerItem
+import com.example.test2effectivemobile.domain.models.HotSalesItem
+import com.example.test2effectivemobile.domain.usecases.LoadBestSellerUseCase
+import com.example.test2effectivemobile.domain.usecases.LoadHotSalesUseCase
 import com.example.test2effectivemobile.presentation.homestore.model.ButtonCategoryModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeStoreViewModel @Inject constructor() : ViewModel() {
+class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHotSalesUseCase, private val bestSellerUseCase: LoadBestSellerUseCase) : ViewModel() {
 
-    //    val currentCategory = MutableLiveData<Int>()
     val buttonCategoriesState = MutableLiveData<List<ButtonCategoryModel>>()
+    val hotSales = MutableLiveData<List<HotSalesItem>>()
+    val bestSeller = MutableLiveData<List<BestSellerItem>>()
+    val isHotSalesLoading = MutableLiveData<Boolean>()
+    val isBestSellerLoading = MutableLiveData<Boolean>()
+
     private fun getUnselectedList(): MutableList<ButtonCategoryModel> {
         return mutableListOf(
             ButtonCategoryModel(
@@ -97,5 +108,23 @@ class HomeStoreViewModel @Inject constructor() : ViewModel() {
             }
         }
         buttonCategoriesState.value = list
+    }
+
+    fun loadHotSales() {
+        isHotSalesLoading.value = true
+        viewModelScope.launch {
+            val result = hotSalesUseCase.execute()
+            hotSales.postValue(result)
+            isHotSalesLoading.postValue(false)
+        }
+    }
+
+    fun loadBestSeller() {
+        isBestSellerLoading.value = true
+        viewModelScope.launch {
+            val result = bestSellerUseCase.execute()
+            bestSeller.postValue(result)
+            isBestSellerLoading.postValue(false)
+        }
     }
 }

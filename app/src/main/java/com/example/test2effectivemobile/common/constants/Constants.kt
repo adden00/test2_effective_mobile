@@ -1,4 +1,4 @@
-package com.example.test2effectivemobile.presentation.homestore
+package com.example.test2effectivemobile.common.constants
 
 object Constants {
     const val PHONES = 1
@@ -6,4 +6,5 @@ object Constants {
     const val HEALTH = 3
     const val BOOKS = 4
     const val PHONES2 = 5
+    const val BASE_URL = "https://run.mocky.io/v3/"
 }

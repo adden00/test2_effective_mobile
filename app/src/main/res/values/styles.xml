@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <style name="text_clickable" >
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_header">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+
+    <style name="text_edit_text">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    
+    <style name="best_seller_price">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">700</item>
+
+    </style>
+
+    <style name="best_seller_old_price">
+        <item name="android:textColor">@color/crossed_text</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">500</item>
+
+
+    </style>
+
+    <style name="best_seller_name">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">400</item>
+
+
+    </style>
+
+
+</resources>

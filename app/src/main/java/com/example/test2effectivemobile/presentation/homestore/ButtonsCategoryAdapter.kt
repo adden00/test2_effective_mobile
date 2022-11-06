@@ -1,7 +1,6 @@
 package com.example.test2effectivemobile.presentation.homestore
 
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,6 @@ class ButtonsCategoryAdapter(private val listener: Listener) :
     class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ButtonCategoryItemBinding.bind(view)
         fun setData(item: ButtonCategoryModel, listener: Listener) {
-            Log.d("MyLog", "data setted!")
             binding.btnCategory.background =
                 ContextCompat.getDrawable(binding.root.context, item.backGround)
             binding.imCategory.setImageDrawable(
