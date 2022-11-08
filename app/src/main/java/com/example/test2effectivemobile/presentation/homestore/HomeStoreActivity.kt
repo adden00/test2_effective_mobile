@@ -139,6 +139,7 @@ class HomeStoreActivity : AppCompatActivity() {
 
         bestSellerAdapter = BestSellerAdapter()
         binding.rcBestSeller.adapter = bestSellerAdapter
+
         binding.rcBestSeller.layoutManager = GridLayoutManager(this, 2)
 
         val snapHelper = LinearSnapHelper()

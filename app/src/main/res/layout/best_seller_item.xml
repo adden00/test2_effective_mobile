@@ -20,23 +20,41 @@
             android:layout_width="match_parent"
             android:layout_height="168dp"
             android:src="@color/dark_ico"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
 
             />
 
+        <androidx.cardview.widget.CardView
 
-        <ImageView
-            android:id="@+id/im_liked"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="@+id/imItemPhoto"
             app:layout_constraintTop_toTopOf="@+id/imItemPhoto"
-            app:srcCompat="@drawable/ic_img_like_disactive"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="6dp"
-            />
+            app:cardCornerRadius="999dp"
+            app:cardElevation="5dp">
+
+            <ImageView
+                android:id="@+id/imLikedBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_best_seller_like_bg" />
+
+
+            <ImageView
+                android:id="@+id/imLikedFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_best_seller_like_enable_fg"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/tvPrice"

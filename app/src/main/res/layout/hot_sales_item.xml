@@ -9,16 +9,20 @@
     app:cardElevation="0dp"
     android:layout_margin="9dp"
     >
-
+<!--TODO: переписать на constraint, чтобы текст не лип друг на друга-->
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="181dp"
+        android:background="@color/black"
 
         >
         <ImageView
             android:id="@+id/imBackground"
             android:layout_width="match_parent"
+            android:layout_marginStart="160dp"
             android:layout_height="match_parent"
+
             android:src="@color/dark_ico"/>
 
         <ImageView
@@ -34,7 +38,7 @@
 
         <TextView
             android:id="@+id/tvHotSalesName"
-            android:layout_width="wrap_content"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:layout_marginTop="59dp"
@@ -47,7 +51,7 @@
 
         <TextView
             android:id="@+id/tvHotSalesDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:layout_marginStart="23dp"

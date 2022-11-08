@@ -39,8 +39,8 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
             binding.tvOldPrice.paintFlags = binding.tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
             Glide.with(context).load(item.picture).into(binding.imItemPhoto)
-            val likedIcon = if(item.is_favorites) R.drawable.ic_img_like_active else R.drawable.ic_img_like_disactive
-            Glide.with(context).load(ContextCompat.getDrawable(context, likedIcon)).into(binding.imLiked)
+            val likedIcon = if(item.is_favorites) R.drawable.ic_best_seller_like_enable_fg else R.drawable.ic_best_seller_like_disable_fg
+            binding.imLikedFg.setImageDrawable(ContextCompat.getDrawable(context, likedIcon))
 
 
         }
