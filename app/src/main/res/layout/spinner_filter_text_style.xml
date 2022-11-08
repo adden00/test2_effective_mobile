@@ -2,9 +2,9 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fontFamily="@font/mark_pro"
-    android:textColor="@color/text_color"
-    android:textFontWeight="500"
-    android:textSize="15sp">
+    android:padding="7dp"
+    style="@style/spinner_filter_text_style">
+
+
 
 </TextView>

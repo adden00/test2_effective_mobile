@@ -1,4 +1,4 @@
-package com.example.test2effectivemobile.presentation.homestore
+package com.example.test2effectivemobile.presentation.homestore.adapters
 
 
 import android.view.LayoutInflater

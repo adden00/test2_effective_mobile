@@ -1,8 +1,11 @@
-package com.example.test2effectivemobile.presentation.homestore
+package com.example.test2effectivemobile.presentation.homestore.adapters
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -21,15 +24,19 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
         return oldItem == newItem
     }
 
-}) {
+}), Filterable {
+
+    private var curList = listOf<BestSellerItem>()
+
     class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
         fun setData(item: BestSellerItem) {
             val binding = BestSellerItemBinding.bind(view)
             val context = binding.root.context
 
-            binding.tvPrice.text = item.price_without_discount.toString()
+            binding.tvPrice.text = "\$${item.price_without_discount}"
             binding.tvName.text = item.title
-            binding.tvOldPrice.text = item.discount_price.toString()
+            binding.tvOldPrice.text = "\$${item.discount_price}"
+            binding.tvOldPrice.paintFlags = binding.tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
             Glide.with(context).load(item.picture).into(binding.imItemPhoto)
             val likedIcon = if(item.is_favorites) R.drawable.ic_img_like_active else R.drawable.ic_img_like_disactive
@@ -46,5 +53,36 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.setData(getItem(position))
+    }
+
+    fun setList(list: List<BestSellerItem>?) {
+        curList = list ?: listOf()
+        submitList(list)
+    }
+
+    override fun getFilter(): Filter {
+        return object: Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val chrSearch = constraint.toString()
+                val resultList = mutableListOf<BestSellerItem>()
+                val filterList = if ((chrSearch.isEmpty()) or (chrSearch == "All"))
+                    curList
+                else {
+                    curList.forEach{
+                        if (it.title.contains(chrSearch))
+                            resultList.add(it)
+                    }
+                    resultList
+                }
+                val filterResult = FilterResults()
+                filterResult.values = filterList
+                return filterResult
+            }
+
+            override fun publishResults(constraint: CharSequence?, result: FilterResults?) {
+                submitList(result?.values as MutableList<BestSellerItem>)
+            }
+
+        }
     }
 }

@@ -50,5 +50,26 @@
 
     </style>
 
+    <style name="filter_options_text">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <style name="spinner_filter_text_style">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <style name="spinner_location_text_style" >
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
 
 </resources>

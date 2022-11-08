@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/white" />
+    <stroke
+        android:width="1dp"
+
+        android:color="@color/spinner_filter_stroke" />
+    <padding android:right="16dp" android:top="7dp" android:bottom="7dp" android:left="14dp"/>
+    <stroke android:width="1dp" android:color="@color/spinner_filter_stroke"/>
+</shape>

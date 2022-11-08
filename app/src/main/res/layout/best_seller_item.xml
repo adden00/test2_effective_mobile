@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="9dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent">
+        android:background="@color/transparent"
+        android:padding="8dp"
+        >
 
         <ImageView
             android:id="@+id/imItemPhoto"

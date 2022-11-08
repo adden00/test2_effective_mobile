@@ -4,4 +4,33 @@
         <item>Zihuatanejo, Gro</item>
         <item>Moscow, Ru</item>
     </string-array>
+
+    <string-array name="spinner_filter_brand_values">
+        <item>@string/all</item>
+        <item>@string/samsung</item>
+        <item>@string/xiaomi</item>
+        <item>@string/apple</item>
+        <item>@string/motorola</item>
+    </string-array>
+
+    <string-array name="spinner_filter_price_values">
+        <item>@string/all</item>
+        <item>@string/range_0_150_dollar</item>
+        <item>@string/range_150_300_dollar</item>
+        <item>@string/range_300_500_dollar</item>
+        <item>@string/range_500_1000_dollar</item>
+        <item>@string/range_1000_5000_dollar</item>
+        <item>@string/range_5000_10000_dollar</item>
+    </string-array>
+
+    <string-array name="spinner_filter_size_values">
+        <item>@string/all</item>
+        <item>@string/range_0_3_inch</item>
+        <item>@string/range_3_4.5_inch</item>
+        <item>@string/range_4.5_5.5_inch</item>
+        <item>@string/range_5.5_6.5_inch</item>
+        <item>@string/range_more_6.5_inch</item>
+    </string-array>
+
+
 </resources>

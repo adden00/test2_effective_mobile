@@ -11,4 +11,28 @@
     <string name="see_more">See more</string>
     <string name="buy_now">Buy now!</string>
     <string name="best_seller">Best Seller</string>
+    <string name="filteroptions">FilterOptions</string>
+    <string name="brand">Brand</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="done">Done</string>
+    <string name="samsung">Samsung</string>
+    <string name="xiaomi">Xiaomi</string>
+    <string name="apple">Apple</string>
+    <string name="motorola">Motorola</string>
+
+    <string name="all">All</string>
+    <string name="range_4.5_5.5_inch">4.5 to 5.5 inches</string>
+    <string name="range_0_3_inch">less 3 inches</string>
+    <string name="range_3_4.5_inch">3 to 4.5 inches</string>
+    <string name="range_5.5_6.5_inch">5.5 to 6.5 inches</string>
+    <string name="range_more_6.5_inch">more 6.5 inches</string>
+
+
+    <string name="range_0_150_dollar">$0-$150</string>
+    <string name="range_150_300_dollar">$150-$300</string>
+    <string name="range_300_500_dollar">$300-$500</string>
+    <string name="range_500_1000_dollar">$500-$1000</string>
+    <string name="range_1000_5000_dollar">$1000-$5000</string>
+    <string name="range_5000_10000_dollar">$5000-$10000</string>
 </resources>
