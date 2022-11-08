@@ -36,4 +36,5 @@
     <string name="range_1000_5000_dollar">$1000-$5000</string>
     <string name="range_5000_10000_dollar">$5000-$10000</string>
     <string name="explorer">Explorer</string>
+    <string name="product_details">Product Details</string>
 </resources>

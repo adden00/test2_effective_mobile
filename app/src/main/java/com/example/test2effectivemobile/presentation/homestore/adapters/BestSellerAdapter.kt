@@ -15,7 +15,7 @@ import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.BestSellerItemBinding
 import com.example.test2effectivemobile.domain.models.BestSellerItem
 
-class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolder>(object : DiffUtil.ItemCallback<BestSellerItem>() {
+class BestSellerAdapter(private val listener: Listener): ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolder>(object : DiffUtil.ItemCallback<BestSellerItem>() {
     override fun areItemsTheSame(oldItem: BestSellerItem, newItem: BestSellerItem): Boolean {
         return oldItem.id == newItem.id
     }
@@ -29,7 +29,7 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
     private var curList = listOf<BestSellerItem>()
 
     class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        fun setData(item: BestSellerItem) {
+        fun setData(item: BestSellerItem, listener: Listener) {
             val binding = BestSellerItemBinding.bind(view)
             val context = binding.root.context
 
@@ -42,6 +42,10 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
             val likedIcon = if(item.is_favorites) R.drawable.ic_best_seller_like_enable_fg else R.drawable.ic_best_seller_like_disable_fg
             binding.imLikedFg.setImageDrawable(ContextCompat.getDrawable(context, likedIcon))
 
+            itemView.setOnClickListener {
+                listener.onItemClick()
+            }
+
 
         }
 
@@ -52,7 +56,7 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        holder.setData(getItem(position))
+        holder.setData(getItem(position), listener)
     }
 
     fun setList(list: List<BestSellerItem>?) {
@@ -84,5 +88,9 @@ class BestSellerAdapter: ListAdapter<BestSellerItem, BestSellerAdapter.ItemHolde
             }
 
         }
+    }
+
+    interface Listener {
+        fun onItemClick()
     }
 }

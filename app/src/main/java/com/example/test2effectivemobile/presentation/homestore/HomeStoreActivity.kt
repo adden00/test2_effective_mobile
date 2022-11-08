@@ -1,5 +1,6 @@
 package com.example.test2effectivemobile.presentation.homestore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,8 +12,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityHomeStoreBinding
+import com.example.test2effectivemobile.presentation.cart.CartActivity
+import com.example.test2effectivemobile.presentation.details.DetailsActivity
 import com.example.test2effectivemobile.presentation.homestore.adapters.BestSellerAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.ButtonsCategoryAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.HotSalesAdapter
@@ -40,6 +44,7 @@ class HomeStoreActivity : AppCompatActivity() {
         observeCategory()
         observeHotSales()
         observeBestSeller()
+        observeFilterShowing()
         downloadInfo()
 
 
@@ -49,38 +54,20 @@ class HomeStoreActivity : AppCompatActivity() {
         binding.includedToolbar.btnFilter.setOnClickListener {
             viewModel.showHideFilter()
         }
-        viewModel.filterIsShown.observe(this) {
-            if (it) {
-                binding.includedFilterLayout.visibility = View.VISIBLE
-                binding.includedFilterLayout.startAnimation(AnimationUtils.loadAnimation(this, R.anim.open_filter_anim))
-                binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_filter_touched))
-
-            }
-            else{
-                val closeAnim = AnimationUtils.loadAnimation(this, R.anim.close_filter_anim)
-                closeAnim.setAnimationListener(object: Animation.AnimationListener {
-                    override fun onAnimationStart(p0: Animation?) {
-                        binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this@HomeStoreActivity, R.drawable.ic_filter))
-                    }
-
-                    override fun onAnimationEnd(p0: Animation?) {
-                        binding.includedFilterLayout.visibility = View.GONE
-                    }
-
-                    override fun onAnimationRepeat(p0: Animation?) {}
-                })
-                binding.includedFilterLayout.startAnimation(closeAnim)
-
-            }
-
-        }
 
         binding.includedFilter.btnClose.setOnClickListener {
             bestSellerAdapter.filter.filter("")
             viewModel.hideFilter() }
+
+
         binding.includedFilter.btnDone.setOnClickListener {
             bestSellerAdapter.filter.filter(binding.includedFilter.spinnerBrand.selectedItem.toString())
             }
+
+        binding.includedBottomTapBar.btnCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
     }
 
 
@@ -133,11 +120,17 @@ class HomeStoreActivity : AppCompatActivity() {
         })
         binding.rcCategory.adapter = categoryAdapter
 
+
         binding.rcHotSales.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         hotSalesAdapter = HotSalesAdapter()
         binding.rcHotSales.adapter = hotSalesAdapter
 
-        bestSellerAdapter = BestSellerAdapter()
+        bestSellerAdapter = BestSellerAdapter(object : BestSellerAdapter.Listener {
+            override fun onItemClick() {
+                startActivity(Intent(this@HomeStoreActivity, DetailsActivity::class.java))
+            }
+
+        })
         binding.rcBestSeller.adapter = bestSellerAdapter
 
         binding.rcBestSeller.layoutManager = GridLayoutManager(this, 2)
@@ -171,6 +164,36 @@ class HomeStoreActivity : AppCompatActivity() {
         }
         viewModel.isBestSellerLoading.observe(this) {
             binding.pbarBestSeller.visibility = if (it) View.VISIBLE else View.GONE
+        }
+    }
+
+    fun observeFilterShowing(){
+        viewModel.filterIsShown.observe(this) {
+            if (it) {
+                binding.includedFilterLayout.visibility = View.VISIBLE
+                binding.includedFilterLayout.startAnimation(AnimationUtils.loadAnimation(this, R.anim.open_filter_anim))
+                binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_filter_touched))
+
+            }
+            else{
+                val closeAnim = AnimationUtils.loadAnimation(this, R.anim.close_filter_anim)
+                closeAnim.setAnimationListener(object: Animation.AnimationListener {
+                    override fun onAnimationStart(p0: Animation?) {
+                        binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this@HomeStoreActivity, R.drawable.ic_filter))
+                    }
+
+                    override fun onAnimationEnd(p0: Animation?) {
+                        binding.includedFilterLayout.visibility = View.GONE
+                    }
+
+                    override fun onAnimationRepeat(p0: Animation?) {}
+                })
+                binding.includedFilterLayout.startAnimation(closeAnim)
+
+            }
+
+
+
         }
     }
 }
