@@ -2,6 +2,7 @@ package com.example.test2effectivemobile.data.repository
 
 import com.example.test2effectivemobile.data.network.NetworkService
 import com.example.test2effectivemobile.domain.models.BestSellerItem
+import com.example.test2effectivemobile.domain.models.CartInfoItem
 import com.example.test2effectivemobile.domain.models.HotSalesItem
 import com.example.test2effectivemobile.domain.models.ProductDetailsItem
 import com.example.test2effectivemobile.domain.repository.StoreRepository
@@ -17,5 +18,9 @@ class StoreRepositoryIml(private val apiService: NetworkService): StoreRepositor
 
     override suspend fun loadProductDetails(): ProductDetailsItem? {
         return apiService.loadProductDetails()
+    }
+
+    override suspend fun loadCartInfo(): CartInfoItem? {
+        return apiService.loadCartInfo()
     }
 }
