@@ -17,11 +17,12 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
     val isImageLoading = MutableLiveData<Boolean>()
     val productDetails = MutableLiveData<ProductDetailsItem?>()
 
-//    init {
-//        loadPhoneImages()
-//    }
+    init {
+        loadPhoneImages()
+        loadProductDetails()
+    }
 
-    fun loadProductDetails() {
+    private fun loadProductDetails() {
         isImageLoading.value = true
         viewModelScope.launch {
             val result = loadProductDetailsUseCase.execute()
@@ -31,7 +32,7 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
 
     }
 
-    fun loadPhoneImages() {
+    private fun loadPhoneImages() {
         isImageLoading.value = true
 
         viewModelScope.launch {

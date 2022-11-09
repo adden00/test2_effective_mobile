@@ -9,7 +9,6 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import androidx.viewpager2.widget.ViewPager2
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityDetailsBinding
 import com.example.test2effectivemobile.databinding.ProductDetailsLayoutBinding
@@ -30,22 +29,42 @@ class DetailsActivity : AppCompatActivity() {
 
         initImagesViewPager()
         observePhoneImages()
-        loadImages()
-        inflateCard()
+        setInfoCard()
+        setButtons()
 
 
 
 
     }
 
-    private fun inflateCard() {
+    private fun setButtons() {
+        binding.includeToolbar.button.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun setInfoCard() {
         LayoutInflater.from(this).inflate(R.layout.product_details_layout, binding.productDetailsHolder)
-//        val bbinding = ProductDetailsLayoutBinding.inflate(layoutInflater)
+        val cardBinding = ProductDetailsLayoutBinding.bind(findViewById(R.id.detailsCardView))
+
+        viewModel.productDetails.observe(this) {
+            if (it != null) {
+                cardBinding.tvName.text = it.title
+                cardBinding.btnIsLiked.visibility = if (it.isFavorites) View.VISIBLE else View.GONE
+                cardBinding.ratingBar.rating = it.rating.toFloat()
+                cardBinding.tvProcessor.text = it.CPU
+                cardBinding.tvCamera.text = it.camera
+                cardBinding.tvRam.text = it.ssd
+                cardBinding.tvMemory.text = it.sd
+                cardBinding.tvPrice.text = "\$${it.price}"
+
+            }
+        }
+
+
+
     }
 
-    private fun loadImages() {
-        viewModel.loadPhoneImages()
-    }
 
 
     private fun initImagesViewPager() = with (binding) {

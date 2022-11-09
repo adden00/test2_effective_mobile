@@ -9,20 +9,21 @@
 
     <FrameLayout
         android:layout_alignParentTop="true"
-        android:id="@+id/includeToolbar"
+        android:id="@+id/includeToolbarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp">
 
 
-        <include layout="@layout/details_toolbar" />
+        <include layout="@layout/details_toolbar"
+            android:id="@+id/includeToolbar"/>
 
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/includeToolbar">
+        android:layout_below="@+id/includeToolbarLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

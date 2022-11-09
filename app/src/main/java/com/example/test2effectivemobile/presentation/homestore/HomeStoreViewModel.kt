@@ -67,6 +67,8 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
     init {
         selectCategory(Constants.PHONES)
         filterIsShown.value = false
+        loadBestSeller()
+        loadHotSales()
     }
 
     fun showHideFilter() {

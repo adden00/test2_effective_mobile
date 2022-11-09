@@ -36,7 +36,6 @@ class HomeStoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeStoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        setSupportActionBar(findViewById(R.id.appBar))
 
         setButtons()
         setSpinnersStyle()
@@ -44,11 +43,7 @@ class HomeStoreActivity : AppCompatActivity() {
         observeCategory()
         observeHotSales()
         observeBestSeller()
-        observeFilterShowing()
-        downloadInfo()
-
-
-    }
+        observeFilterShowing()    }
 
     private fun setButtons() {
         binding.includedToolbar.btnFilter.setOnClickListener {
@@ -71,18 +66,6 @@ class HomeStoreActivity : AppCompatActivity() {
     }
 
 
-    private fun downloadInfo() {
-        viewModel.loadHotSales()
-        viewModel.loadBestSeller()
-    }
-
-//    private fun fullscreen() {
-//        val w: Window = window
-//        w.setFlags(
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//        )
-//    }
 
     private fun setSpinnersStyle() {
         val locationSpinnerAdapter =  ArrayAdapter.createFromResource (this, R.array.spinner_location_values, R.layout.spinner_location_text_style)
