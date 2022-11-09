@@ -17,9 +17,9 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
     val isImageLoading = MutableLiveData<Boolean>()
     val productDetails = MutableLiveData<ProductDetailsItem?>()
 
-    init {
-        loadPhoneImages()
-    }
+//    init {
+//        loadPhoneImages()
+//    }
 
     fun loadProductDetails() {
         isImageLoading.value = true

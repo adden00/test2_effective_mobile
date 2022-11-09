@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="8dp"
+
+    app:cardCornerRadius="30dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/product_details_header_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="fill_horizontal"
+            android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/frameLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="37dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stateListAnimator="@null"
+                android:background="@drawable/product_details_like_bg" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="10dp"
+                android:src="@drawable/ic_product_details_like_like_fg" />
+
+        </FrameLayout>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/rating_bar_style"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="7dp"
+            android:numStars="5"
+            android:rating="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            app:tabIndicatorColor="@color/color_primary"
+            app:tabSelectedTextColor="@color/text_color"
+            app:tabTextAppearance="@style/tap_bar_text_style"
+            app:tabTextColor="@color/product_details_unselect_tab">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shop" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/features" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <ImageView
+            android:id="@+id/imProcessor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            app:srcCompat="@drawable/ic_product_details_processor" />
+
+        <TextView
+            android:id="@+id/tvProcessor"
+            style="@style/product_details_small_grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="processor"
+            app:layout_constraintEnd_toEndOf="@+id/imProcessor"
+            app:layout_constraintStart_toStartOf="@+id/imProcessor"
+            app:layout_constraintTop_toBottomOf="@+id/imProcessor" />
+
+
+        <ImageView
+
+            android:id="@+id/imCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imProcessor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.37"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imProcessor"
+            app:srcCompat="@drawable/ic_product_details_camera" />
+
+        <TextView
+            android:id="@+id/tvCamera"
+            style="@style/product_details_small_grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="camera"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProcessor"
+            app:layout_constraintEnd_toEndOf="@+id/imCamera"
+            app:layout_constraintStart_toStartOf="@+id/imCamera"
+            app:layout_constraintTop_toTopOf="@+id/tvProcessor" />
+
+
+        <ImageView
+            android:id="@+id/imRam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imProcessor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imProcessor"
+            app:srcCompat="@drawable/ic_product_details_ram" />
+
+
+        <TextView
+            android:id="@+id/tvRam"
+            style="@style/product_details_small_grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RAM"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProcessor"
+            app:layout_constraintEnd_toEndOf="@+id/imRam"
+            app:layout_constraintStart_toStartOf="@+id/imRam"
+            app:layout_constraintTop_toTopOf="@+id/tvProcessor" />
+
+        <ImageView
+            android:id="@+id/imMemory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imProcessor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imProcessor"
+            app:srcCompat="@drawable/ic_product_details_processor" />
+
+        <TextView
+            android:id="@+id/tvMemory"
+            style="@style/product_details_small_grey_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="memory"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProcessor"
+            app:layout_constraintEnd_toEndOf="@+id/imMemory"
+            app:layout_constraintStart_toStartOf="@+id/imMemory"
+            app:layout_constraintTop_toTopOf="@+id/tvProcessor" />
+
+        <TextView
+            android:id="@+id/tvSelectColorAndCap"
+            style="@style/product_details_header_small_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="29dp"
+            android:text="@string/select_color_and_capability"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProcessor" />
+
+        <FrameLayout
+            android:id="@+id/frameColor1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectColorAndCap">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="999dp"
+                app:cardElevation="0dp"
+
+                >
+
+                <Button
+                    android:id="@+id/btnProductDetailsColor1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stateListAnimator="@null"
+                    android:background="@color/product_details_color_brown" />
+
+                <ImageView
+                    android:id="@+id/imBrownSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_product_details_selected_color_mark" />
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectColorAndCap">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/text_color"
+                app:cardCornerRadius="999dp"
+                app:cardElevation="0dp">
+
+                <Button
+                    android:id="@+id/btnProductDetailsColor2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stateListAnimator="@null"
+                    android:background="@color/transparent" />
+
+                <ImageView
+                    android:id="@+id/imBlueSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="10dp"
+                    android:src="@drawable/ic_product_details_selected_color_mark"
+                    android:visibility="gone" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/product_details_memory_selected"
+            android:layout_width="71dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="90dp"
+            android:background="@drawable/product_details_select_color_button_background"
+            android:text="128GB"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button4"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/product_details_memory_unselected"
+            android:layout_width="71dp"
+
+            android:layout_height="30dp"
+
+            android:background="@color/transparent"
+            android:text="256GB"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameColor1">
+
+
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:stateListAnimator="@null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/product_details_select_color_button_background" />
+
+            <TextView
+                style="@style/product_details_add_to_cart_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="45dp"
+                android:elevation="10dp"
+                android:text="@string/add_to_cart" />
+
+            <TextView
+                style="@style/product_details_add_to_cart_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="38dp"
+                android:elevation="10dp"
+                android:text="$" />
+
+
+        </FrameLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

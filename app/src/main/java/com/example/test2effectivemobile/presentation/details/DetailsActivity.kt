@@ -3,13 +3,16 @@ package com.example.test2effectivemobile.presentation.details
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityDetailsBinding
+import com.example.test2effectivemobile.databinding.ProductDetailsLayoutBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -27,10 +30,21 @@ class DetailsActivity : AppCompatActivity() {
 
         initImagesViewPager()
         observePhoneImages()
+        loadImages()
+        inflateCard()
 
 
 
 
+    }
+
+    private fun inflateCard() {
+        LayoutInflater.from(this).inflate(R.layout.product_details_layout, binding.productDetailsHolder)
+//        val bbinding = ProductDetailsLayoutBinding.inflate(layoutInflater)
+    }
+
+    private fun loadImages() {
+        viewModel.loadPhoneImages()
     }
 
 

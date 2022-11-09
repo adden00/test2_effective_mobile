@@ -16,6 +16,11 @@
     <color name="dark_ico">#B3B3C3</color>
     <color name="crossed_text">#CCCCCC</color>
     <color name="spinner_filter_stroke">#DCDCDC</color>
+    <color name="rating_bar_active">#FFB800</color>
+    <color name="product_details_grey_text">#B7B7B7</color>
+    <color name="product_details_unselect_tab">#80000000</color>
+    <color name="product_details_color_brown">#772D03</color>
+    <color name="product_details_unselected_memory_text">#8D8D8D</color>
 
 
 
