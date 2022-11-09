@@ -43,4 +43,7 @@
     <string name="features">Features</string>
     <string name="select_color_and_capability">Select color and capability</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="add_address">Add address</string>
+    <string name="my_cart">My Cart</string>
+    <string name="total">Total</string>
 </resources>

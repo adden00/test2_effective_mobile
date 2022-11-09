@@ -128,8 +128,30 @@
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
-
     </style>
+
+    <style name="cart_header_text" >
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="cart_bottom_text" >
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="cart_phone_name_next" >
+        <item name="android:fontFamily">@font/mark_pro</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
     <style name="rating_bar_style"
         parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:progressTint">@color/rating_bar_active</item>

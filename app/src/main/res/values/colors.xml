@@ -21,6 +21,8 @@
     <color name="product_details_unselect_tab">#80000000</color>
     <color name="product_details_color_brown">#772D03</color>
     <color name="product_details_unselected_memory_text">#8D8D8D</color>
+    <color name="cart_line_color">#41FFFFFF</color>
+    <color name="cart_count_bg">#282843</color>
 
 
 
