@@ -1,17 +1,22 @@
 package com.example.test2effectivemobile.presentation.details
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityDetailsBinding
-import com.example.test2effectivemobile.databinding.ProductDetailsLayoutBinding
+import com.example.test2effectivemobile.databinding.ProductDetailsCardBinding
+import com.example.test2effectivemobile.domain.models.ProductDetailsItem
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -29,12 +34,17 @@ class DetailsActivity : AppCompatActivity() {
 
         initImagesViewPager()
         observePhoneImages()
-        setInfoCard()
+        observeProductDetails()
+
         setButtons()
 
 
+    }
 
-
+    private fun observeProductDetails() {
+        viewModel.productDetails.observe(this) {
+            setInfoCard(binding.productDetailsHolder, it)
+        }
     }
 
     private fun setButtons() {
@@ -43,31 +53,27 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setInfoCard() {
-        LayoutInflater.from(this).inflate(R.layout.product_details_layout, binding.productDetailsHolder)
-        val cardBinding = ProductDetailsLayoutBinding.bind(findViewById(R.id.detailsCardView))
+    private fun setInfoCard(parent: ViewGroup, item: ProductDetailsItem?) {
+        LayoutInflater.from(parent.context).inflate(R.layout.product_details_card, parent)
 
-        viewModel.productDetails.observe(this) {
-            if (it != null) {
-                cardBinding.tvName.text = it.title
-                cardBinding.btnIsLiked.visibility = if (it.isFavorites) View.VISIBLE else View.GONE
-                cardBinding.ratingBar.rating = it.rating.toFloat()
-                cardBinding.tvProcessor.text = it.CPU
-                cardBinding.tvCamera.text = it.camera
-                cardBinding.tvRam.text = it.ssd
-                cardBinding.tvMemory.text = it.sd
-                cardBinding.tvPrice.text = "\$${it.price}"
+        val cardBinding = ProductDetailsCardBinding.bind(findViewById(R.id.detailsCardView))
 
-            }
+        if (item != null)  with(cardBinding) {
+            tvName.text = item.title
+            btnIsLiked.visibility = if (item.isFavorites) View.VISIBLE else View.GONE
+            ratingBar.rating = item.rating.toFloat()
+            tvProcessor.text = item.CPU
+            tvCamera.text = item.camera
+            tvRam.text = item.ssd
+            tvMemory.text = item.sd
+            tvPrice.text = "\$${item.price}"
         }
-
 
 
     }
 
 
-
-    private fun initImagesViewPager() = with (binding) {
+    private fun initImagesViewPager() = with(binding) {
         adapter = PhoneImagesAdapter()
         viewPagerPhoneImages.adapter = adapter
         viewPagerPhoneImages.clipToPadding = false
@@ -77,8 +83,8 @@ class DetailsActivity : AppCompatActivity() {
         val compositePageTransformer = CompositePageTransformer()
         compositePageTransformer.addTransformer(MarginPageTransformer(40))
         compositePageTransformer.addTransformer { page, position ->
-            val  r = 1 - abs(position)
-            page.scaleY = 0.85f + r*0.15f
+            val r = 1 - abs(position)
+            page.scaleY = 0.85f + r * 0.15f
         }
         viewPagerPhoneImages.setPageTransformer(compositePageTransformer)
 
@@ -86,12 +92,12 @@ class DetailsActivity : AppCompatActivity() {
 
 
     private fun observePhoneImages() {
-        viewModel.imageUrlList.observe(this){
+        viewModel.imageUrlList.observe(this) {
             Log.d("MyLog", it.toString())
             adapter.submitList(it)
 
         }
-        viewModel.isImageLoading.observe(this){
+        viewModel.isImageLoading.observe(this) {
             binding.pbarIsImageLoading.visibility = if (it) View.VISIBLE else View.GONE
         }
     }
