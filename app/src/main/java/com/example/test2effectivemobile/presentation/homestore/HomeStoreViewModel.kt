@@ -10,12 +10,16 @@ import com.example.test2effectivemobile.domain.models.HotSalesItem
 import com.example.test2effectivemobile.domain.usecases.LoadBestSellerUseCase
 import com.example.test2effectivemobile.domain.usecases.LoadHotSalesUseCase
 import com.example.test2effectivemobile.presentation.homestore.model.ButtonCategoryModel
+import com.example.test2effectivemobile.presentation.homestore.model.FilterModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHotSalesUseCase, private val bestSellerUseCase: LoadBestSellerUseCase) : ViewModel() {
+class HomeStoreViewModel @Inject constructor(
+    private val hotSalesUseCase: LoadHotSalesUseCase,
+    private val bestSellerUseCase: LoadBestSellerUseCase
+) : ViewModel() {
 
     val buttonCategoriesState = MutableLiveData<List<ButtonCategoryModel>>()
     val hotSales = MutableLiveData<List<HotSalesItem>>()
@@ -23,6 +27,27 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
     val isHotSalesLoading = MutableLiveData<Boolean>()
     val isBestSellerLoading = MutableLiveData<Boolean>()
     val filterIsShown = MutableLiveData<Boolean>()
+    private var allBestSellerItems = listOf<BestSellerItem>()
+
+    init {
+        selectCategory(Constants.PHONES)
+        filterIsShown.value = false
+        loadBestSeller()
+        loadHotSales()
+    }
+
+    fun filter(filterItem: FilterModel) {
+        val result = mutableListOf<BestSellerItem>()
+        allBestSellerItems.forEach {
+            if (((it.title.contains(filterItem.brand)) or (filterItem.brand == "All"))
+                and (it.discount_price >= filterItem.minPrice)
+                and (it.price_without_discount <= filterItem.maxPrice)) {
+                result.add(it)
+            }
+        }
+        bestSeller.value = result
+    }
+
 
     private fun getUnselectedList(): MutableList<ButtonCategoryModel> {
         return mutableListOf(
@@ -64,18 +89,13 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
         )
     }
 
-    init {
-        selectCategory(Constants.PHONES)
-        filterIsShown.value = false
-        loadBestSeller()
-        loadHotSales()
-    }
 
     fun showHideFilter() {
         val t: Boolean = filterIsShown.value ?: false
 
         filterIsShown.value = !t
     }
+
     fun hideFilter() {
         filterIsShown.value = false
     }
@@ -138,6 +158,7 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
             val result = bestSellerUseCase.execute()
             bestSeller.postValue(result)
             isBestSellerLoading.postValue(false)
+            allBestSellerItems = result
         }
     }
 }

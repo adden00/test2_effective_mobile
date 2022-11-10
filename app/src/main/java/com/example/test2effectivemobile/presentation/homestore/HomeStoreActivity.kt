@@ -13,12 +13,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.test2effectivemobile.R
+import com.example.test2effectivemobile.common.constants.Constants
 import com.example.test2effectivemobile.databinding.ActivityHomeStoreBinding
 import com.example.test2effectivemobile.presentation.cart.CartActivity
 import com.example.test2effectivemobile.presentation.details.DetailsActivity
 import com.example.test2effectivemobile.presentation.homestore.adapters.BestSellerAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.ButtonsCategoryAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.HotSalesAdapter
+import com.example.test2effectivemobile.presentation.homestore.model.FilterModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -50,12 +52,25 @@ class HomeStoreActivity : AppCompatActivity() {
         }
 
         binding.includedFilter.btnClose.setOnClickListener {
-            bestSellerAdapter.filter.filter("")
+            viewModel.filter(FilterModel("All", Constants.MIN_PRICE, Constants.MAX_PRICE))
             viewModel.hideFilter() }
 
 
         binding.includedFilter.btnDone.setOnClickListener {
-            bestSellerAdapter.filter.filter(binding.includedFilter.spinnerBrand.selectedItem.toString())
+            val brand = binding.includedFilter.spinnerBrand.selectedItem.toString()
+            val price = binding.includedFilter.spinnerPrice.selectedItem.toString()
+            val minPrice: Int
+            val maxPrice: Int
+            if (price == "All"){
+                minPrice = Constants.MIN_PRICE
+                maxPrice = Constants.MAX_PRICE
+            }
+            else{
+                val priceRange = price.replace("\$", "").split("-").map { it.toInt() }
+                minPrice = priceRange[0]
+                maxPrice = priceRange[1]
+            }
+            viewModel.filter(FilterModel(brand = brand, minPrice = minPrice, maxPrice = maxPrice))
             }
 
         binding.includedBottomTapBar.btnCart.setOnClickListener {

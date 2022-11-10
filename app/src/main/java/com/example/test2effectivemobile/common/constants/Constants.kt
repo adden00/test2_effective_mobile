@@ -7,4 +7,6 @@ object Constants {
     const val BOOKS = 4
     const val PHONES2 = 5
     const val BASE_URL = "https://run.mocky.io/v3/"
+    const val MIN_PRICE = 0
+    const val MAX_PRICE = 10000
 }

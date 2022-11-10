@@ -25,7 +25,7 @@ class BestSellerAdapter(private val listener: Listener): ListAdapter<BestSellerI
         return oldItem == newItem
     }
 
-}), Filterable {
+}) {
 
     private var curList = listOf<BestSellerItem>()
 
@@ -66,32 +66,6 @@ class BestSellerAdapter(private val listener: Listener): ListAdapter<BestSellerI
         submitList(list)
     }
 
-    // TODO: разобраться с фильтром
-    override fun getFilter(): Filter {
-        return object: Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val chrSearch = constraint.toString()
-                val resultList = mutableListOf<BestSellerItem>()
-                val filterList = if ((chrSearch.isEmpty()) or (chrSearch == "All"))
-                    curList
-                else {
-                    curList.forEach{
-                        if (it.title.contains(chrSearch))
-                            resultList.add(it)
-                    }
-                    resultList
-                }
-                val filterResult = FilterResults()
-                filterResult.values = filterList
-                return filterResult
-            }
-
-            override fun publishResults(constraint: CharSequence?, result: FilterResults?) {
-                submitList(result?.values as MutableList<BestSellerItem>)
-            }
-
-        }
-    }
 
     interface Listener {
         fun onItemClick()
