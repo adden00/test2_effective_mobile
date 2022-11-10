@@ -1,5 +1,6 @@
 package com.example.test2effectivemobile.presentation.homestore.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,7 @@ class BestSellerAdapter(private val listener: Listener): ListAdapter<BestSellerI
     private var curList = listOf<BestSellerItem>()
 
     class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
+        @SuppressLint("SetTextI18n")
         fun setData(item: BestSellerItem, listener: Listener) {
             val binding = BestSellerItemBinding.bind(view)
             val context = binding.root.context
@@ -64,6 +66,7 @@ class BestSellerAdapter(private val listener: Listener): ListAdapter<BestSellerI
         submitList(list)
     }
 
+    // TODO: разобраться с фильтром
     override fun getFilter(): Filter {
         return object: Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {

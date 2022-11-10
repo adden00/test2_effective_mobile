@@ -123,7 +123,7 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
         buttonCategoriesState.value = list
     }
 
-    fun loadHotSales() {
+    private fun loadHotSales() {
         isHotSalesLoading.value = true
         viewModelScope.launch {
             val result = hotSalesUseCase.execute()
@@ -132,7 +132,7 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
         }
     }
 
-    fun loadBestSeller() {
+    private fun loadBestSeller() {
         isBestSellerLoading.value = true
         viewModelScope.launch {
             val result = bestSellerUseCase.execute()

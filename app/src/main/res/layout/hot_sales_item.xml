@@ -2,15 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     app:cardElevation="0dp"
     android:layout_margin="9dp"
     >
-<!--TODO: переписать на constraint, чтобы текст не лип друг на друга-->
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -30,7 +27,8 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:contentDescription="@string/phone_image" />
 
         <ImageView
             android:visibility="visible"
@@ -42,54 +40,44 @@
             android:src="@drawable/ic_img_new_hotsale"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
-            />
+            android:contentDescription="@string/is_new" />
 
         <TextView
+            style="@style/text_hot_sales_header"
             android:id="@+id/tvHotSalesName"
+            android:text="@string/name"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="48dp"
             android:layout_marginBottom="25dp"
-            android:fontFamily="@font/sfpro_display"
-            android:text="TextView"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0" />
 
         <TextView
+            style="@style/text_hot_sales_description"
             android:id="@+id/tvHotSalesDescription"
             android:layout_width="127dp"
+            android:text="@string/description"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/sfpro_display"
-            android:text="TextView"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-
-            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHotSalesName" />
 
         <Button
+            style="@style/text_hot_sales_button"
             android:id="@+id/button"
             android:layout_width="98dp"
             android:layout_height="23dp"
             android:layout_marginStart="23dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/white_button_radius_5dp"
-            android:fontFamily="@font/sfpro_display"
             android:stateListAnimator="@null"
             android:text="@string/buy_now"
             android:textAllCaps="false"
-            android:textFontWeight="700"
-            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

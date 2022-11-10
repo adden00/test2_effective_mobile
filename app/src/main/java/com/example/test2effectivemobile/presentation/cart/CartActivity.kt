@@ -1,12 +1,11 @@
 package com.example.test2effectivemobile.presentation.cart
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityCartBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +44,7 @@ class CartActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun observeCartItems() {
         viewModel.cartInfo.observe(this){
 

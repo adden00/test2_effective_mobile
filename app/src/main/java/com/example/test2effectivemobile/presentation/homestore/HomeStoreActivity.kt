@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityHomeStoreBinding
 import com.example.test2effectivemobile.presentation.cart.CartActivity
@@ -94,7 +93,6 @@ class HomeStoreActivity : AppCompatActivity() {
     }
 
     private fun initRcAdapters() {
-//        val horizontalLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rcCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         categoryAdapter = ButtonsCategoryAdapter(object : ButtonsCategoryAdapter.Listener {
             override fun onClick(id: Int) {
@@ -150,7 +148,7 @@ class HomeStoreActivity : AppCompatActivity() {
         }
     }
 
-    fun observeFilterShowing(){
+    private fun observeFilterShowing(){
         viewModel.filterIsShown.observe(this) {
             if (it) {
                 binding.includedFilterLayout.visibility = View.VISIBLE

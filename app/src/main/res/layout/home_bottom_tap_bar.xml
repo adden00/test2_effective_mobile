@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="1dp"
     android:layout_marginEnd="1dp"
-    android:layout_height="wrap_content"
     app:cardCornerRadius="30dp"
     app:cardElevation="0dp">
 
@@ -16,34 +15,20 @@
         android:padding="15dp">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <TextView
+            style="@style/tap_bar_text_style"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:text="@string/explorer"
+            app:drawableLeftCompat="@drawable/ic_tap_bar_dot"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/ic_tap_bar_dot" />
-
-            <TextView
-                style="@style/tap_bar_text_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="7dp"
-                android:text="@string/explorer" />
-
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <FrameLayout
@@ -61,15 +46,14 @@
                 android:id="@+id/btnCart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_transparent_bg"
-                 />
+                android:background="@drawable/button_transparent_bg" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_tapbar_cart"
                 android:layout_gravity="center"
-                />
+                android:contentDescription="@string/cart"
+                android:src="@drawable/ic_tapbar_cart" />
 
 
         </FrameLayout>
@@ -90,15 +74,14 @@
                 android:id="@+id/btnLiked"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_transparent_bg"
-                />
+                android:background="@drawable/button_transparent_bg" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_tapbar_like"
                 android:layout_gravity="center"
-                />
+                android:contentDescription="@string/liked"
+                android:src="@drawable/ic_tapbar_like" />
         </FrameLayout>
 
         <FrameLayout
@@ -116,18 +99,15 @@
                 android:id="@+id/btnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/button_transparent_bg"
-                />
+                android:background="@drawable/button_transparent_bg" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_tapbar_profile"
                 android:layout_gravity="center"
-                />
+                android:contentDescription="@string/profile"
+                android:src="@drawable/ic_tapbar_profile" />
         </FrameLayout>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

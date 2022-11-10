@@ -2,6 +2,7 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="0dp">
@@ -47,9 +48,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/location_spinner_bg"
-            android:paddingEnd="36dp"
-
-            />
+            android:paddingEnd="28dp"
+            tools:ignore="RtlSymmetry" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgLocationToolbar"

@@ -17,6 +17,28 @@
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
 
+    <style name="text_hot_sales_header">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/sfpro_display</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+    <style name="text_hot_sales_description">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/sfpro_display</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="text_hot_sales_button">
+        <item name="android:textColor">@color/secondary_color</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/sfpro_display</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+
     <style name="text_edit_text">
         <item name="android:textColor">@color/secondary_color</item>
         <item name="android:textSize">12sp</item>

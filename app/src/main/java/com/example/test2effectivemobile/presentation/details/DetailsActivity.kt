@@ -1,6 +1,6 @@
 package com.example.test2effectivemobile.presentation.details
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -60,6 +58,7 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setInfoCard(parent: ViewGroup, item: ProductDetailsItem?) {
         LayoutInflater.from(parent.context).inflate(R.layout.product_details_card, parent)
 
@@ -76,14 +75,11 @@ class DetailsActivity : AppCompatActivity() {
             tvPrice.text = "\$${item.price}"
 
             btnAddToCart.setOnClickListener {
-                val snackbar = Snackbar.make(binding.root, "Added to cart", Snackbar.LENGTH_LONG)
-                snackbar.setAction("Open cart", object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        startActivity(Intent(this@DetailsActivity, CartActivity::class.java))
-                    }
-
-                })
-                snackbar.show()
+                val snackBar = Snackbar.make(binding.root, "Added to cart", Snackbar.LENGTH_LONG)
+                snackBar.setAction("Open cart") {
+                    startActivity(Intent(this@DetailsActivity, CartActivity::class.java))
+                }
+                snackBar.show()
             }
         }
 

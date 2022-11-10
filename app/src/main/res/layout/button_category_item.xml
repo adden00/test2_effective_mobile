@@ -2,6 +2,7 @@
 
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/allItem"
     android:layout_width="75dp"
     android:layout_height="91dp"
@@ -24,10 +25,13 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:background="@color/transparent"
-        android:elevation="10dp" />
+        android:elevation="10dp"
+        android:src="@drawable/ic_svg_smartphone_dark"
+        android:contentDescription="@string/category_button_foreground" />
 
     <TextView
         android:id="@+id/tvCategory"
+        android:text="@string/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -35,7 +39,8 @@
         android:gravity="center"
         android:textColor="@color/secondary_color"
         android:textFontWeight="400"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="UnusedAttribute" />
 
 
 </FrameLayout>

@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="9dp"
-    app:cardCornerRadius="10dp"
-    >
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
-        android:padding="8dp"
-        >
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/imItemPhoto"
             android:layout_width="match_parent"
             android:layout_height="168dp"
+            android:contentDescription="@string/phone_image"
             android:src="@color/dark_ico"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
 
@@ -34,24 +29,26 @@
             android:layout_height="25dp"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/imItemPhoto"
-            app:layout_constraintTop_toTopOf="@+id/imItemPhoto"
             app:cardCornerRadius="999dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/imItemPhoto"
+            app:layout_constraintTop_toTopOf="@+id/imItemPhoto">
 
             <ImageView
                 android:id="@+id/imLikedBg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/ic_best_seller_like_bg" />
+                app:srcCompat="@drawable/ic_best_seller_like_bg"
+                android:contentDescription="@string/liked" />
 
 
             <ImageView
                 android:id="@+id/imLikedFg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_best_seller_like_enable_fg"
-                android:layout_gravity="center"/>
+                android:contentDescription="@string/liked" />
 
         </androidx.cardview.widget.CardView>
 
@@ -59,32 +56,32 @@
         <TextView
             android:id="@+id/tvPrice"
             style="@style/best_seller_price"
+            android:text="@string/dollar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
             android:layout_marginTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imItemPhoto"
-            android:text="TextView"
-            />
+        />
 
         <TextView
             android:id="@+id/tvOldPrice"
             style="@style/best_seller_old_price"
+            android:text="@string/dollar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
             app:layout_constraintStart_toEndOf="@+id/tvPrice" />
 
         <TextView
             android:id="@+id/tvName"
             style="@style/best_seller_name"
+            android:text="@string/phone_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="TextView"
             app:layout_constraintStart_toStartOf="@+id/tvPrice"
             app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
