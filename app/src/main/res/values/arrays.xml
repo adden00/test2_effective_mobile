@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner_location_values">
-        <item>Zihuatanejo, Gro</item>
-        <item>Moscow, Ru</item>
+        <item>@string/location1</item>
+        <item>@string/location2</item>
     </string-array>
 
     <string-array name="spinner_filter_brand_values">

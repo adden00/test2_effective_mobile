@@ -10,13 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/home_bg"
+        android:background="@color/light_background_color"
         android:padding="5dp"
         >
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnBack"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@drawable/ic_details_toolbar_back_btn_bg"
@@ -32,12 +32,12 @@
             android:layout_height="wrap_content"
             android:text="@string/product_details"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/btnCart"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnCart"
             android:layout_width="36dp"
             android:layout_height="36dp"
 

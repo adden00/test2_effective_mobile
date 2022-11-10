@@ -8,11 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="splash_bg">#010035</color>
-    <color name="color_primary">#FF6E4E</color>
-    <color name="home_bg">#F8F8F8</color>
+    <color name="primary_color">#FF6E4E</color>
+    <color name="light_background_color">#F8F8F8</color>
     <color name="transparent">#00000000</color>
-    <color name="text_color">#010035</color>
+    <color name="secondary_color">#010035</color>
     <color name="dark_ico">#B3B3C3</color>
     <color name="crossed_text">#CCCCCC</color>
     <color name="spinner_filter_stroke">#DCDCDC</color>
@@ -23,6 +22,7 @@
     <color name="product_details_unselected_memory_text">#8D8D8D</color>
     <color name="cart_line_color">#41FFFFFF</color>
     <color name="cart_count_bg">#282843</color>
+    <color name="primary_color_clicked">#80FF6E4E</color>
 
 
 

@@ -11,11 +11,10 @@
         </shape>
     </item>
 
-    <item>
-        <bitmap
-            android:gravity="center|end"
-            android:src="@drawable/ic_spinner_arrow_small"
-            />
+    <item android:drawable="@drawable/ic_spinner_arrow_small2"
+        android:gravity="center|end">
+
     </item>
+
 </layer-list>
 

@@ -49,7 +49,7 @@
                 android:layout_width="86dp"
                 android:layout_height="37dp"
                 android:layout_weight="1"
-                android:background="@drawable/filter_button_done_bg"
+                android:background="@drawable/buttons_primary_background"
                 android:fontFamily="@font/mark_pro"
                 android:textColor="@color/white"
                 android:textSize="18sp"

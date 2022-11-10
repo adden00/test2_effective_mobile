@@ -33,7 +33,7 @@
         android:layout_gravity="bottom"
         android:fontFamily="@font/mark_pro"
         android:gravity="center"
-        android:textColor="@color/text_color"
+        android:textColor="@color/secondary_color"
         android:textFontWeight="400"
         android:textSize="12sp" />
 

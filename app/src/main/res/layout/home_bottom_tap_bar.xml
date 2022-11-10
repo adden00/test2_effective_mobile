@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/text_color"
+        android:background="@color/secondary_color"
         android:padding="15dp">
 
 
@@ -61,7 +61,7 @@
                 android:id="@+id/btnCart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent"
+                android:background="@drawable/button_transparent_bg"
                  />
 
             <ImageView
@@ -90,7 +90,7 @@
                 android:id="@+id/btnLiked"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent"
+                android:background="@drawable/button_transparent_bg"
                 />
 
             <ImageView
@@ -116,7 +116,7 @@
                 android:id="@+id/btnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent"
+                android:background="@drawable/button_transparent_bg"
                 />
 
             <ImageView

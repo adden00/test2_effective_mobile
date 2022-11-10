@@ -1,6 +1,7 @@
 package com.example.test2effectivemobile.presentation.details
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,8 @@ import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ActivityDetailsBinding
 import com.example.test2effectivemobile.databinding.ProductDetailsCardBinding
 import com.example.test2effectivemobile.domain.models.ProductDetailsItem
+import com.example.test2effectivemobile.presentation.cart.CartActivity
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -48,9 +51,13 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun setButtons() {
-        binding.includeToolbar.button.setOnClickListener {
+        binding.includeToolbar.btnBack.setOnClickListener {
             finish()
         }
+        binding.includeToolbar.btnCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
     }
 
     private fun setInfoCard(parent: ViewGroup, item: ProductDetailsItem?) {
@@ -67,6 +74,17 @@ class DetailsActivity : AppCompatActivity() {
             tvRam.text = item.ssd
             tvMemory.text = item.sd
             tvPrice.text = "\$${item.price}"
+
+            btnAddToCart.setOnClickListener {
+                val snackbar = Snackbar.make(binding.root, "Added to cart", Snackbar.LENGTH_LONG)
+                snackbar.setAction("Open cart", object : View.OnClickListener {
+                    override fun onClick(p0: View?) {
+                        startActivity(Intent(this@DetailsActivity, CartActivity::class.java))
+                    }
+
+                })
+                snackbar.show()
+            }
         }
 
 

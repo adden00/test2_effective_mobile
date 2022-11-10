@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
     android:layout_height="wrap_content"
@@ -10,29 +11,37 @@
     android:layout_margin="9dp"
     >
 <!--TODO: переписать на constraint, чтобы текст не лип друг на друга-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="181dp"
         android:background="@color/black"
 
         >
+
         <ImageView
             android:id="@+id/imBackground"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="160dp"
-            android:layout_height="match_parent"
-
-            android:src="@color/dark_ico"/>
+            android:src="@color/dark_ico"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
+            android:visibility="visible"
             android:id="@+id/iconNew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_img_new_hotsale"
-            android:layout_marginTop="29dp"
             android:layout_marginStart="29dp"
-            android:visibility="gone"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/ic_img_new_hotsale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
             />
 
@@ -40,43 +49,51 @@
             android:id="@+id/tvHotSalesName"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginTop="59dp"
             android:layout_marginStart="23dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="25dp"
             android:fontFamily="@font/sfpro_display"
-            android:textSize="25sp"
-            android:textFontWeight="700"
+            android:text="TextView"
             android:textColor="@color/white"
-            />
+            android:textFontWeight="700"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/tvHotSalesDescription"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="94dp"
-            android:textSize="11sp"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/sfpro_display"
+            android:text="TextView"
             android:textColor="@color/white"
             android:textFontWeight="400"
 
-            />
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHotSalesName" />
 
         <Button
+            android:id="@+id/button"
             android:layout_width="98dp"
             android:layout_height="23dp"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="131dp"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/white_button_radius_5dp"
+            android:fontFamily="@font/sfpro_display"
             android:stateListAnimator="@null"
             android:text="@string/buy_now"
-            android:fontFamily="@font/sfpro_display"
             android:textAllCaps="false"
+            android:textFontWeight="700"
             android:textSize="11sp"
-            android:textFontWeight="700"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

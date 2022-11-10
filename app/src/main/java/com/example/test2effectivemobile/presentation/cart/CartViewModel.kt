@@ -15,6 +15,11 @@ class CartViewModel @Inject constructor(private val cartInfoUseCase: LoadCartInf
     val isLoading = MutableLiveData<Boolean>()
 
 
+    init {
+        loadCartInfo()
+
+    }
+
     fun loadCartInfo() {
         isLoading.value = true
         viewModelScope.launch {

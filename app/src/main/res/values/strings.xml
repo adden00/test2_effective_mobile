@@ -21,6 +21,9 @@
     <string name="apple">Apple</string>
     <string name="motorola">Motorola</string>
 
+    <string name="location1">Zihuatanejo, Gro</string>
+    <string name="location2">Moscow, Ru</string>
+
     <string name="all">All</string>
     <string name="range_4.5_5.5_inch">4.5 to 5.5 inches</string>
     <string name="range_0_3_inch">less 3 inches</string>
@@ -46,4 +49,6 @@
     <string name="add_address">Add address</string>
     <string name="my_cart">My Cart</string>
     <string name="total">Total</string>
+    <string name="delivery">Delivery</string>
+    <string name="checkout">Checkout</string>
 </resources>

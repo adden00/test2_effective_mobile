@@ -31,35 +31,35 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
                 "Phones",
                 R.drawable.select_category_buttons_not_selected_bg,
                 R.drawable.ic_svg_smartphone_dark,
-                R.color.text_color
+                R.color.secondary_color
             ),
             ButtonCategoryModel(
                 Constants.COMPUTERS,
                 "Computers",
                 R.drawable.select_category_buttons_not_selected_bg,
                 R.drawable.ic_svg_computer_dark,
-                R.color.text_color
+                R.color.secondary_color
             ),
             ButtonCategoryModel(
                 Constants.HEALTH,
                 "Health",
                 R.drawable.select_category_buttons_not_selected_bg,
                 R.drawable.ic_svg_health_dark,
-                R.color.text_color
+                R.color.secondary_color
             ),
             ButtonCategoryModel(
                 Constants.BOOKS,
                 "Books",
                 R.drawable.select_category_buttons_not_selected_bg,
                 R.drawable.ic_svg_books_dark,
-                R.color.text_color
+                R.color.secondary_color
             ),
             ButtonCategoryModel(
                 Constants.PHONES2,
                 "Phones2",
                 R.drawable.select_category_buttons_not_selected_bg,
                 R.drawable.ic_svg_smartphone_dark,
-                R.color.text_color
+                R.color.secondary_color
             ),
         )
     }
@@ -88,35 +88,35 @@ class HomeStoreViewModel @Inject constructor(private val hotSalesUseCase: LoadHo
                 list[selectedCategory - 1] = list[selectedCategory - 1].copy(
                     backGround = R.drawable.select_category_buttons_selected_bg,
                     icon = R.drawable.ic_svg_smartphone_light,
-                    textColor = R.color.color_primary
+                    textColor = R.color.primary_color
                 )
             }
             Constants.COMPUTERS -> {
                 list[selectedCategory - 1] = list[selectedCategory - 1].copy(
                     backGround = R.drawable.select_category_buttons_selected_bg,
                     icon = R.drawable.ic_svg_computer_light,
-                    textColor = R.color.color_primary
+                    textColor = R.color.primary_color
                 )
             }
             Constants.HEALTH -> {
                 list[selectedCategory - 1] = list[selectedCategory - 1].copy(
                     backGround = R.drawable.select_category_buttons_selected_bg,
                     icon = R.drawable.ic_svg_health_light,
-                    textColor = R.color.color_primary
+                    textColor = R.color.primary_color
                 )
             }
             Constants.BOOKS -> {
                 list[selectedCategory - 1] = list[selectedCategory - 1].copy(
                     backGround = R.drawable.select_category_buttons_selected_bg,
                     icon = R.drawable.ic_svg_books_light,
-                    textColor = R.color.color_primary
+                    textColor = R.color.primary_color
                 )
             }
             Constants.PHONES2 -> {
                 list[selectedCategory - 1] = list[selectedCategory - 1].copy(
                     backGround = R.drawable.select_category_buttons_selected_bg,
                     icon = R.drawable.ic_svg_smartphone_light,
-                    textColor = R.color.color_primary
+                    textColor = R.color.primary_color
                 )
             }
         }

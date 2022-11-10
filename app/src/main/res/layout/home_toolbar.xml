@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/home_bg">
+        android:background="@color/light_background_color">
 
 
         <FrameLayout
@@ -24,7 +24,8 @@
                 android:id="@+id/btnFilter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_transparent_bg"
                 />
 
             <com.google.android.material.imageview.ShapeableImageView

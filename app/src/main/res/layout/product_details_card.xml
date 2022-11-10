@@ -87,8 +87,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            app:tabIndicatorColor="@color/color_primary"
-            app:tabSelectedTextColor="@color/text_color"
+            app:tabIndicatorColor="@color/primary_color"
+            app:tabSelectedTextColor="@color/secondary_color"
             app:tabTextAppearance="@style/tap_bar_text_style"
             app:tabTextColor="@color/product_details_unselect_tab">
 
@@ -263,7 +263,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/text_color"
+                android:backgroundTint="@color/secondary_color"
                 app:cardCornerRadius="999dp"
                 app:cardElevation="0dp">
 
@@ -294,7 +294,7 @@
             android:layout_width="71dp"
             android:layout_height="30dp"
             android:layout_marginEnd="90dp"
-            android:background="@drawable/product_details_select_color_button_background"
+            android:background="@drawable/buttons_primary_background"
             android:text="128GB"
             android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="@+id/button4"
@@ -311,7 +311,7 @@
 
             android:layout_height="30dp"
 
-            android:background="@color/transparent"
+            android:background="@drawable/button_transparent_bg"
             android:text="256GB"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
@@ -340,7 +340,7 @@
                 android:stateListAnimator="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/product_details_select_color_button_background" />
+                android:background="@drawable/buttons_primary_background" />
 
             <TextView
                 style="@style/product_details_add_to_cart_text"

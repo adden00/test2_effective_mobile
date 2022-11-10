@@ -3,22 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/background_search.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/background_spinner_all_items.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/best_seller_like_disable_bg.xml" value="0.215" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/button_circle_background.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/button_transparent_bg.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/buttons_primary_background.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/category_button.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/category_button_not_selected.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/category_button_with_icon.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/category_selected_button.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/filter_button_bg.xml" value="0.215" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/filter_button_done_bg.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/filter_spinner_bg.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_arrow_spinner.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_best_seller_like_bg.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_best_seller_like_disable_bg.xml" value="0.215" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_best_seller_like_disable_fg.xml" value="0.1535" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_best_seller_like_enable_fg.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_cart_delete_item.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_cart_minus.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_cart_plus.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_cart_toolbar_location_button_bg.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_close_filter.xml" value="0.215" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_details_toolbar_back_btn_bg.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_details_toolbar_cart_btn_bg.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_filter.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_filter_touched.xml" value="0.3035" />
@@ -27,13 +37,18 @@
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_img_new_hotsale.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_location.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_camera.xml" value="0.1535" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_like_like_fg.xml" value="0.1535" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_memory.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_proccesor.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_processor.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_ram.xml" value="0.29" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_product_details_selected_color_mark.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_search.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_search_qr.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_search_qr_background.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_spinner_arrow.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_spinner_arrow_small2.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_books_dark.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_books_light.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_computer_dark.xml" value="0.2055" />
@@ -43,15 +58,21 @@
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_smartphone_dark.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_smartphone_light.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_svg_smartphone_white.xml" value="0.2055" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_tap_bar_dot.xml" value="0.1535" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_tapbar_cart.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_tapbar_dot.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_tapbar_like.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/ic_tapbar_profile.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/location_spinner_bg.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/product_details_like_bg.xml" value="0.215" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/product_details_select_color_button_background.xml" value="0.215" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/product_detais_select_color_button_background.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/search_view_bg.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/select_category_buttons_not_selected_bg.xml" value="0.3035" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/select_category_buttons_selected_bg.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/spinner_bg.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/spinner_item_bg.xml" value="0.2055" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/spinner_poup_bg.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/test.xml" value="0.2055" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/toolbar_filter_button_bg.xml" value="0.3035" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/drawable/white_button_radius_5dp.xml" value="0.1535" />
@@ -59,7 +80,7 @@
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/font/mark_pro.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/font/mark_pro_xml.xml" value="0.3302083333333333" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout-v28/activity_home_store.xml" value="0.2078125" />
-        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/activity_cart.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/activity_cart.xml" value="0.2977777777777778" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/activity_details.xml" value="0.2078125" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/activity_home_store.xml" value="0.26564885496183205" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/activity_splash.xml" value="0.14375" />
@@ -70,9 +91,11 @@
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/cart_toolbar.xml" value="0.2078125" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/details_toolbar.xml" value="0.2078125" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/filter_options_card.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/home_bottom_tap_bar.xml" value="0.3" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/home_toolbar.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/hot_sales_item.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/hot_sales_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/phone_image_item.xml" value="0.2078125" />
+        <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/product_details_card.xml" value="0.3" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/product_details_layout.xml" value="0.31710709318497915" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/spinner_filter_item_text_style.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/adden/AndroidStudioProjects/Test2EffectiveMobile/app/src/main/res/layout/spinner_filter_text_style.xml" value="0.3" />
