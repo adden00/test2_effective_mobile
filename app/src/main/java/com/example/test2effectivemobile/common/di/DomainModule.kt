@@ -26,6 +26,9 @@ object DomainModule {
     @Provides
     fun provideLoadCartInfoUseCase(repository: StoreRepository) = LoadCartInfoUseCase(repository = repository)
 
+    @Provides
+    fun provideLoadCartItemsCountUseCase(repository: StoreRepository) = LoadCartItemsCountUseCase(repository = repository)
+
 
 
 

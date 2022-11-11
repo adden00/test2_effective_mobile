@@ -55,6 +55,16 @@
                 android:contentDescription="@string/cart"
                 android:src="@drawable/ic_tapbar_cart" />
 
+            <TextView
+                android:visibility="gone"
+                style="@style/product_details_memory_selected"
+                android:id="@+id/tvCartItemsCount"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/buttons_primary_background"
+                android:gravity="bottom|center_horizontal"/>
+
 
         </FrameLayout>
 

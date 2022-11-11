@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.PhoneImageItemBinding
 
-class PhoneImagesAdapter: ListAdapter<String, PhoneImagesAdapter.ItemHolder>(object : DiffUtil.ItemCallback<String>(){
+class PhoneImagesAdapter(private val viewPager2: ViewPager2): ListAdapter<String, PhoneImagesAdapter.ItemHolder>(object : DiffUtil.ItemCallback<String>(){
     override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem == newItem
     }
@@ -33,9 +34,14 @@ class PhoneImagesAdapter: ListAdapter<String, PhoneImagesAdapter.ItemHolder>(obj
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.phone_image_item, parent, false))
+
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.setData(getItem(position))
+        if (position == currentList.size - 2)
+            viewPager2.post(runnable)
     }
+
+    private val runnable = Runnable { submitList(currentList + currentList) }
 }

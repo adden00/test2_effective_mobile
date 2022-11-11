@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.ButtonCategoryItemBinding
-import com.example.test2effectivemobile.presentation.homestore.model.ButtonCategoryModel
+import com.example.test2effectivemobile.presentation.homestore.models.ButtonCategoryModel
 
 class ButtonsCategoryAdapter(private val listener: Listener) :
     ListAdapter<ButtonCategoryModel, ButtonsCategoryAdapter.ItemHolder>(object :

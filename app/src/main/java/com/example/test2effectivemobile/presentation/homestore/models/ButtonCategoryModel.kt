@@ -1,4 +1,4 @@
-package com.example.test2effectivemobile.presentation.homestore.model
+package com.example.test2effectivemobile.presentation.homestore.models
 
 data class ButtonCategoryModel(
     val id: Int,

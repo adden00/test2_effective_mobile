@@ -20,7 +20,7 @@ class CartViewModel @Inject constructor(private val cartInfoUseCase: LoadCartInf
 
     }
 
-    private fun loadCartInfo() {
+    fun loadCartInfo() {
         isLoading.value = true
         viewModelScope.launch {
             val result = cartInfoUseCase.execute()

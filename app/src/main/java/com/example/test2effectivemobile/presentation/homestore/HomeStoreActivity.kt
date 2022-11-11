@@ -20,7 +20,7 @@ import com.example.test2effectivemobile.presentation.details.DetailsActivity
 import com.example.test2effectivemobile.presentation.homestore.adapters.BestSellerAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.ButtonsCategoryAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.HotSalesAdapter
-import com.example.test2effectivemobile.presentation.homestore.model.FilterModel
+import com.example.test2effectivemobile.presentation.homestore.models.FilterModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -44,7 +44,28 @@ class HomeStoreActivity : AppCompatActivity() {
         observeCategory()
         observeHotSales()
         observeBestSeller()
-        observeFilterShowing()    }
+        observeFilterShowing()
+        observeCartItemsCount()
+        observeSwipeToRefresh()
+
+    }
+
+    private fun observeSwipeToRefresh() {
+        viewModel.isBestSellerLoading.observe(this) {
+            binding.swipeRefreshLayout.isRefreshing = it
+        }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.loadAllInfo()
+        }
+    }
+
+    private fun observeCartItemsCount() {
+        viewModel.cartItemsCount.observe(this) {
+
+            binding.includedBottomTapBar.tvCartItemsCount.visibility = if (it != 0) View.VISIBLE else View.GONE
+            binding.includedBottomTapBar.tvCartItemsCount.text = it.toString()
+        }
+    }
 
     private fun setButtons() {
         binding.includedToolbar.btnFilter.setOnClickListener {
@@ -52,8 +73,15 @@ class HomeStoreActivity : AppCompatActivity() {
         }
 
         binding.includedFilter.btnClose.setOnClickListener {
-            viewModel.filter(FilterModel("All", Constants.MIN_PRICE, Constants.MAX_PRICE))
-            viewModel.hideFilter() }
+            viewModel.filterBestSellerItems(
+                FilterModel(
+                    "All",
+                    Constants.MIN_PRICE,
+                    Constants.MAX_PRICE
+                )
+            )
+            viewModel.hideFilter()
+        }
 
 
         binding.includedFilter.btnDone.setOnClickListener {
@@ -61,17 +89,22 @@ class HomeStoreActivity : AppCompatActivity() {
             val price = binding.includedFilter.spinnerPrice.selectedItem.toString()
             val minPrice: Int
             val maxPrice: Int
-            if (price == "All"){
+            if (price == "All") {
                 minPrice = Constants.MIN_PRICE
                 maxPrice = Constants.MAX_PRICE
-            }
-            else{
+            } else {
                 val priceRange = price.replace("\$", "").split("-").map { it.toInt() }
                 minPrice = priceRange[0]
                 maxPrice = priceRange[1]
             }
-            viewModel.filter(FilterModel(brand = brand, minPrice = minPrice, maxPrice = maxPrice))
-            }
+            viewModel.filterBestSellerItems(
+                FilterModel(
+                    brand = brand,
+                    minPrice = minPrice,
+                    maxPrice = maxPrice
+                )
+            )
+        }
 
         binding.includedBottomTapBar.btnCart.setOnClickListener {
             startActivity(Intent(this, CartActivity::class.java))
@@ -80,35 +113,50 @@ class HomeStoreActivity : AppCompatActivity() {
     }
 
 
-
     private fun setSpinnersStyle() {
-        val locationSpinnerAdapter =  ArrayAdapter.createFromResource (this, R.array.spinner_location_values, R.layout.spinner_location_text_style)
+        val locationSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.spinner_location_values,
+            R.layout.spinner_location_text_style
+        )
         locationSpinnerAdapter.setDropDownViewResource(R.layout.spinner_location_text_style)
         binding.includedToolbar.spinnerLocation.adapter = locationSpinnerAdapter
         binding.includedToolbar.spinnerLocation.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
 
-        val brandSpinnerAdapter = ArrayAdapter.createFromResource (this, R.array.spinner_filter_brand_values, R.layout.spinner_filter_text_style)
+        val brandSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.spinner_filter_brand_values,
+            R.layout.spinner_filter_text_style
+        )
         brandSpinnerAdapter.setDropDownViewResource(R.layout.spinner_filter_text_style)
         binding.includedFilter.spinnerBrand.adapter = brandSpinnerAdapter
         binding.includedFilter.spinnerBrand.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
-        val priceSpinnerAdapter = ArrayAdapter.createFromResource (this, R.array.spinner_filter_price_values, R.layout.spinner_filter_text_style)
+        val priceSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.spinner_filter_price_values,
+            R.layout.spinner_filter_text_style
+        )
         priceSpinnerAdapter.setDropDownViewResource(R.layout.spinner_filter_text_style)
         binding.includedFilter.spinnerPrice.adapter = priceSpinnerAdapter
         binding.includedFilter.spinnerPrice.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
-        val sizeSpinnerAdapter = ArrayAdapter.createFromResource (this, R.array.spinner_filter_size_values, R.layout.spinner_filter_text_style)
+        val sizeSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.spinner_filter_size_values,
+            R.layout.spinner_filter_text_style
+        )
         sizeSpinnerAdapter.setDropDownViewResource(R.layout.spinner_filter_text_style)
         binding.includedFilter.spinnerSize.adapter = sizeSpinnerAdapter
         binding.includedFilter.spinnerSize.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
 
-
     }
 
     private fun initRcAdapters() {
-        binding.rcCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rcCategory.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         categoryAdapter = ButtonsCategoryAdapter(object : ButtonsCategoryAdapter.Listener {
             override fun onClick(id: Int) {
                 viewModel.selectCategory(id)
@@ -117,7 +165,8 @@ class HomeStoreActivity : AppCompatActivity() {
         binding.rcCategory.adapter = categoryAdapter
 
 
-        binding.rcHotSales.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rcHotSales.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         hotSalesAdapter = HotSalesAdapter()
         binding.rcHotSales.adapter = hotSalesAdapter
 
@@ -138,7 +187,7 @@ class HomeStoreActivity : AppCompatActivity() {
 
 
     private fun observeCategory() {
-        viewModel.buttonCategoriesState.observe(this){
+        viewModel.buttonCategoriesState.observe(this) {
             categoryAdapter.submitList(it)
         }
 
@@ -163,19 +212,33 @@ class HomeStoreActivity : AppCompatActivity() {
         }
     }
 
-    private fun observeFilterShowing(){
+    private fun observeFilterShowing() {
         viewModel.filterIsShown.observe(this) {
             if (it) {
                 binding.includedFilterLayout.visibility = View.VISIBLE
-                binding.includedFilterLayout.startAnimation(AnimationUtils.loadAnimation(this, R.anim.open_filter_anim))
-                binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_filter_touched))
+                binding.includedFilterLayout.startAnimation(
+                    AnimationUtils.loadAnimation(
+                        this,
+                        R.anim.open_filter_anim
+                    )
+                )
+                binding.includedToolbar.imgFilterToolbar.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_filter_touched
+                    )
+                )
 
-            }
-            else{
+            } else {
                 val closeAnim = AnimationUtils.loadAnimation(this, R.anim.close_filter_anim)
-                closeAnim.setAnimationListener(object: Animation.AnimationListener {
+                closeAnim.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(p0: Animation?) {
-                        binding.includedToolbar.imgFilterToolbar.setImageDrawable(ContextCompat.getDrawable(this@HomeStoreActivity, R.drawable.ic_filter))
+                        binding.includedToolbar.imgFilterToolbar.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                this@HomeStoreActivity,
+                                R.drawable.ic_filter
+                            )
+                        )
                     }
 
                     override fun onAnimationEnd(p0: Animation?) {
@@ -187,7 +250,6 @@ class HomeStoreActivity : AppCompatActivity() {
                 binding.includedFilterLayout.startAnimation(closeAnim)
 
             }
-
 
 
         }

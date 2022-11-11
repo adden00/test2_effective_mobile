@@ -2,7 +2,6 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -27,226 +26,235 @@
     </FrameLayout>
 
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/light_background_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/includedToolbarLayout"
-        tools:context=".presentation.homestore.HomeStoreActivity">
+        >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_height="match_parent"
+            android:background="@color/light_background_color"
 
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+           >
 
-
-            <TextView
-                android:id="@+id/tvSelectCategory"
-                style="@style/text_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/select_category"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvViewAll"
-                style="@style/text_clickable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="33dp"
-                android:text="@string/view_all"
-                app:layout_constraintBottom_toBottomOf="@+id/tvSelectCategory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvSelectCategory" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcCategory"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+
+                app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSelectCategory" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/edSearch"
-                style="@style/text_edit_text"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="11dp"
-                android:autofillHints=""
-                android:background="@drawable/search_view_bg"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="16dp"
-                android:ems="10"
-                android:hint="@string/search"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/frameLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rcCategory" />
 
-            <FrameLayout
-                android:id="@+id/frameLayout"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginEnd="37dp"
-                app:layout_constraintBottom_toBottomOf="@+id/edSearch"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/edSearch">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/button_circle_background"
-                    android:stateListAnimator="@null" />
-
-                <ImageView
+                <TextView
+                    android:id="@+id/tvSelectCategory"
+                    style="@style/text_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/qr_search"
-                    android:elevation="10dp"
-                    android:src="@drawable/ic_search_qr" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/select_category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvViewAll"
+                    style="@style/text_clickable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="33dp"
+                    android:text="@string/view_all"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSelectCategory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvSelectCategory" />
 
 
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/tvHotSales"
-                style="@style/text_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/mark_pro"
-                android:text="@string/hot_sales"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
-
-            <TextView
-                android:id="@+id/tvSeeMoreHotSales"
-                style="@style/text_clickable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="33dp"
-                android:text="@string/see_more"
-                app:layout_constraintBottom_toBottomOf="@+id/tvHotSales"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvHotSales" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcHotSales"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotSales" />
-
-            <ProgressBar
-                android:id="@+id/pbarHotSales"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rcHotSales"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rcHotSales" />
-
-            <FrameLayout
-                android:id="@+id/includedFilterLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rcHotSales">
-
-                <include
-                    android:id="@+id/includedFilter"
-                    layout="@layout/filter_options_card"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSelectCategory" />
 
-            </FrameLayout>
+                <EditText
+                    android:id="@+id/edSearch"
+                    style="@style/text_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="11dp"
+                    android:autofillHints=""
+                    android:background="@drawable/search_view_bg"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="16dp"
+                    android:ems="10"
+                    android:hint="@string/search"
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcCategory" />
 
-            <TextView
-                android:id="@+id/tvBestSeller"
-                style="@style/text_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/mark_pro"
-                android:text="@string/best_seller"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/includedFilterLayout" />
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginEnd="37dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/edSearch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/edSearch">
 
-            <TextView
-                android:id="@+id/tvSeeMoreBestSeller"
-                style="@style/text_clickable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="33dp"
-                android:text="@string/see_more"
-                app:layout_constraintBottom_toBottomOf="@+id/tvBestSeller"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvBestSeller" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button_circle_background"
+                        android:stateListAnimator="@null" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcBestSeller"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="80dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvBestSeller">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <ProgressBar
-                android:id="@+id/pbarBestSeller"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rcBestSeller"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rcBestSeller" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/qr_search"
+                        android:elevation="10dp"
+                        android:src="@drawable/ic_search_qr" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </FrameLayout>
 
-    </ScrollView>
+                <TextView
+                    android:id="@+id/tvHotSales"
+                    style="@style/text_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/mark_pro"
+                    android:text="@string/hot_sales"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+                <TextView
+                    android:id="@+id/tvSeeMoreHotSales"
+                    style="@style/text_clickable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="33dp"
+                    android:text="@string/see_more"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvHotSales"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvHotSales" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcHotSales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHotSales" />
+
+                <ProgressBar
+                    android:id="@+id/pbarHotSales"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rcHotSales"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rcHotSales" />
+
+                <FrameLayout
+                    android:id="@+id/includedFilterLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcHotSales">
+
+                    <include
+                        android:id="@+id/includedFilter"
+                        layout="@layout/filter_options_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvBestSeller"
+                    style="@style/text_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/mark_pro"
+                    android:text="@string/best_seller"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/includedFilterLayout" />
+
+                <TextView
+                    android:id="@+id/tvSeeMoreBestSeller"
+                    style="@style/text_clickable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="33dp"
+                    android:text="@string/see_more"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBestSeller"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvBestSeller" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcBestSeller"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBestSeller">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <ProgressBar
+                    android:id="@+id/pbarBestSeller"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rcBestSeller"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rcBestSeller" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     <FrameLayout
         android:id="@+id/includedBottomTapBarLayout"

@@ -8,9 +8,10 @@ import com.example.test2effectivemobile.common.constants.Constants
 import com.example.test2effectivemobile.domain.models.BestSellerItem
 import com.example.test2effectivemobile.domain.models.HotSalesItem
 import com.example.test2effectivemobile.domain.usecases.LoadBestSellerUseCase
+import com.example.test2effectivemobile.domain.usecases.LoadCartItemsCountUseCase
 import com.example.test2effectivemobile.domain.usecases.LoadHotSalesUseCase
-import com.example.test2effectivemobile.presentation.homestore.model.ButtonCategoryModel
-import com.example.test2effectivemobile.presentation.homestore.model.FilterModel
+import com.example.test2effectivemobile.presentation.homestore.models.ButtonCategoryModel
+import com.example.test2effectivemobile.presentation.homestore.models.FilterModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeStoreViewModel @Inject constructor(
     private val hotSalesUseCase: LoadHotSalesUseCase,
-    private val bestSellerUseCase: LoadBestSellerUseCase
+    private val bestSellerUseCase: LoadBestSellerUseCase,
+    private val cartItemsCountUseCase: LoadCartItemsCountUseCase
 ) : ViewModel() {
 
     val buttonCategoriesState = MutableLiveData<List<ButtonCategoryModel>>()
@@ -28,15 +30,31 @@ class HomeStoreViewModel @Inject constructor(
     val isBestSellerLoading = MutableLiveData<Boolean>()
     val filterIsShown = MutableLiveData<Boolean>()
     private var allBestSellerItems = listOf<BestSellerItem>()
+    val cartItemsCount = MutableLiveData<Int>()
 
     init {
         selectCategory(Constants.PHONES)
         filterIsShown.value = false
-        loadBestSeller()
-        loadHotSales()
+        loadAllInfo()
+
     }
 
-    fun filter(filterItem: FilterModel) {
+    fun loadAllInfo() {
+        loadBestSeller()
+        loadHotSales()
+        getCartItemsCount()
+
+    }
+
+    private fun getCartItemsCount() {
+        viewModelScope.launch {
+            val result = cartItemsCountUseCase.execute()
+            cartItemsCount.postValue(result)
+        }
+    }
+
+    // get filter params and delete items, that shouldn't be included
+    fun filterBestSellerItems(filterItem: FilterModel) {
         val result = mutableListOf<BestSellerItem>()
         allBestSellerItems.forEach {
             if (((it.title.contains(filterItem.brand)) or (filterItem.brand == "All"))
@@ -48,7 +66,7 @@ class HomeStoreViewModel @Inject constructor(
         bestSeller.value = result
     }
 
-
+// returning list of unselected buttons, for selecting only one
     private fun getUnselectedList(): MutableList<ButtonCategoryModel> {
         return mutableListOf(
             ButtonCategoryModel(
@@ -101,6 +119,7 @@ class HomeStoreViewModel @Inject constructor(
     }
 
 
+    // selecting button, that had been touched
     fun selectCategory(selectedCategory: Int) {
         val list = getUnselectedList()
         when (selectedCategory) {

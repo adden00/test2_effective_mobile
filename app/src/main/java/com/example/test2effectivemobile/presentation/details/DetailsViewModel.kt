@@ -18,8 +18,7 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
     val productDetails = MutableLiveData<ProductDetailsItem?>()
 
     init {
-        loadPhoneImages()
-        loadProductDetails()
+        loadAllInfo()
     }
 
     private fun loadProductDetails() {
@@ -41,6 +40,11 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
             isImageLoading.postValue(false)
         }
 
+    }
+
+    fun loadAllInfo() {
+        loadPhoneImages()
+        loadProductDetails()
     }
 
 }

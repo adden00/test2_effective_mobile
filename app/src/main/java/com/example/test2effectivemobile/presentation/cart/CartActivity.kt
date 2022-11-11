@@ -23,6 +23,7 @@ class CartActivity : AppCompatActivity() {
         initCartAdapter()
         observeCartItems()
         setButtons()
+        observeSwipeToRefresh()
 
     }
 
@@ -33,6 +34,15 @@ class CartActivity : AppCompatActivity() {
         binding.btnCheckout.setOnClickListener {
             Snackbar.make( binding.root, "Making your order...", Snackbar.LENGTH_SHORT).show()
 
+        }
+    }
+
+    private fun observeSwipeToRefresh() {
+        viewModel.isLoading.observe(this) {
+            binding.swipeRefreshLayout.isRefreshing = it
+        }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.loadCartInfo()
         }
     }
 

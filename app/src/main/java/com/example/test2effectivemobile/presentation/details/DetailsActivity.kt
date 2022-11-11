@@ -32,14 +32,10 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initImagesViewPager()
         observePhoneImages()
         observeProductDetails()
-
         setButtons()
-
-
     }
 
     private fun observeProductDetails() {
@@ -88,7 +84,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
     private fun initImagesViewPager() = with(binding) {
-        adapter = PhoneImagesAdapter()
+        adapter = PhoneImagesAdapter(binding.viewPagerPhoneImages)
         viewPagerPhoneImages.adapter = adapter
         viewPagerPhoneImages.clipToPadding = false
         viewPagerPhoneImages.clipChildren = false
@@ -101,6 +97,10 @@ class DetailsActivity : AppCompatActivity() {
             page.scaleY = 0.85f + r * 0.15f
         }
         viewPagerPhoneImages.setPageTransformer(compositePageTransformer)
+
+
+
+
 
     }
 
