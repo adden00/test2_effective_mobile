@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.test2effectivemobile.presentation.cart.CartFragment"
+        android:label="activity_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.test2effectivemobile.presentation.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.test2effectivemobile.presentation.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeStoreFragment"
+            app:destination="@id/homeStoreFragment"
+            app:popUpTo="@navigation/main_navigation"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/homeStoreFragment"
+        android:name="com.example.test2effectivemobile.presentation.homestore.HomeStoreFragment"
+        android:label="HomeStoreFragment" >
+        <action
+            android:id="@+id/action_homeStoreFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeStoreFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>

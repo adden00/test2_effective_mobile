@@ -11,7 +11,8 @@ import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.HotSalesItemBinding
 import com.example.test2effectivemobile.domain.models.HotSalesItem
 
-class HotSalesAdapter: ListAdapter<HotSalesItem, HotSalesAdapter.ItemHolder>(object : DiffUtil.ItemCallback<HotSalesItem>() {
+class HotSalesAdapter : ListAdapter<HotSalesItem, HotSalesAdapter.ItemHolder>(object :
+    DiffUtil.ItemCallback<HotSalesItem>() {
     override fun areItemsTheSame(oldItem: HotSalesItem, newItem: HotSalesItem): Boolean {
         return oldItem.id == newItem.id
     }
@@ -20,22 +21,22 @@ class HotSalesAdapter: ListAdapter<HotSalesItem, HotSalesAdapter.ItemHolder>(obj
         return oldItem == newItem
     }
 }) {
-    class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
+    class ItemHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
         fun setData(item: HotSalesItem) {
             val binding = HotSalesItemBinding.bind(view)
-
-            Glide.with(binding.root.context).load(item.picture).centerCrop().into(binding.imBackground)
+            Glide.with(binding.root.context).load(item.picture).centerCrop()
+                .into(binding.imBackground)
             binding.tvHotSalesDescription.text = item.subtitle
             binding.tvHotSalesName.text = item.title
             binding.iconNew.visibility = if (item.is_new) View.VISIBLE else View.GONE
-
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-        return ItemHolder(LayoutInflater.from(parent.context).inflate(R.layout.hot_sales_item, parent, false))
+        return ItemHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.hot_sales_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {

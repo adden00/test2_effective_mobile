@@ -36,14 +36,12 @@ class HomeStoreViewModel @Inject constructor(
         selectCategory(Constants.PHONES)
         filterIsShown.value = false
         loadAllInfo()
-
     }
 
     fun loadAllInfo() {
         loadBestSeller()
         loadHotSales()
         getCartItemsCount()
-
     }
 
     private fun getCartItemsCount() {
@@ -59,14 +57,15 @@ class HomeStoreViewModel @Inject constructor(
         allBestSellerItems.forEach {
             if (((it.title.contains(filterItem.brand)) or (filterItem.brand == "All"))
                 and (it.discount_price >= filterItem.minPrice)
-                and (it.price_without_discount <= filterItem.maxPrice)) {
+                and (it.price_without_discount <= filterItem.maxPrice)
+            ) {
                 result.add(it)
             }
         }
         bestSeller.value = result
     }
 
-// returning list of unselected buttons, for selecting only one
+    // returning list of unselected buttons, for selecting only one
     private fun getUnselectedList(): MutableList<ButtonCategoryModel> {
         return mutableListOf(
             ButtonCategoryModel(

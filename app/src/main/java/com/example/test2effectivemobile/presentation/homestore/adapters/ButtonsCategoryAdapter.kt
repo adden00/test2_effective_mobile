@@ -65,7 +65,6 @@ class ButtonsCategoryAdapter(private val listener: Listener) :
         holder.setData(getItem(position), listener)
     }
 
-
     interface Listener {
         fun onClick(id: Int)
     }

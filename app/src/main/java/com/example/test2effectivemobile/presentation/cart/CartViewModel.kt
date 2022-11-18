@@ -10,14 +10,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CartViewModel @Inject constructor(private val cartInfoUseCase: LoadCartInfoUseCase): ViewModel() {
+class CartViewModel @Inject constructor(private val cartInfoUseCase: LoadCartInfoUseCase) :
+    ViewModel() {
     val cartInfo = MutableLiveData<CartInfoItem?>()
     val isLoading = MutableLiveData<Boolean>()
 
-
     init {
         loadCartInfo()
-
     }
 
     fun loadCartInfo() {
@@ -28,5 +27,4 @@ class CartViewModel @Inject constructor(private val cartInfoUseCase: LoadCartInf
             isLoading.postValue(false)
         }
     }
-
 }

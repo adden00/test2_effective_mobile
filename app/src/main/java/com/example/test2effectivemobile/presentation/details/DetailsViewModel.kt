@@ -11,7 +11,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase: LoadProductDetailsUseCase,private val loadPhoneImagesUseCase: LoadPhoneImagesUseCase): ViewModel() {
+class DetailsViewModel @Inject constructor(
+    private val loadProductDetailsUseCase: LoadProductDetailsUseCase,
+    private val loadPhoneImagesUseCase: LoadPhoneImagesUseCase
+) : ViewModel() {
 
     val imageUrlList = MutableLiveData<List<String>>()
     val isImageLoading = MutableLiveData<Boolean>()
@@ -26,25 +29,20 @@ class DetailsViewModel @Inject constructor(private val loadProductDetailsUseCase
         viewModelScope.launch {
             val result = loadProductDetailsUseCase.execute()
             productDetails.postValue(result)
-
         }
-
     }
 
     private fun loadPhoneImages() {
         isImageLoading.value = true
-
         viewModelScope.launch {
             val result = loadPhoneImagesUseCase.execute()
             imageUrlList.postValue(result)
             isImageLoading.postValue(false)
         }
-
     }
 
-    fun loadAllInfo() {
+    private fun loadAllInfo() {
         loadPhoneImages()
         loadProductDetails()
     }
-
 }

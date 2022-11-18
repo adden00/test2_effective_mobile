@@ -1,43 +1,45 @@
 package com.example.test2effectivemobile.presentation.homestore
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.common.constants.Constants
-import com.example.test2effectivemobile.databinding.ActivityHomeStoreBinding
-import com.example.test2effectivemobile.presentation.cart.CartActivity
-import com.example.test2effectivemobile.presentation.details.DetailsActivity
+import com.example.test2effectivemobile.databinding.FragmentHomeStoreBinding
 import com.example.test2effectivemobile.presentation.homestore.adapters.BestSellerAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.ButtonsCategoryAdapter
 import com.example.test2effectivemobile.presentation.homestore.adapters.HotSalesAdapter
 import com.example.test2effectivemobile.presentation.homestore.models.FilterModel
-import dagger.hilt.android.AndroidEntryPoint
 
-
-@AndroidEntryPoint
-class HomeStoreActivity : AppCompatActivity() {
-
-    private val viewModel: HomeStoreViewModel by viewModels()
-    private lateinit var binding: ActivityHomeStoreBinding
+class HomeStoreFragment : Fragment() {
+    private val viewModel: HomeStoreViewModel by activityViewModels()
+    private lateinit var binding: FragmentHomeStoreBinding
     private lateinit var categoryAdapter: ButtonsCategoryAdapter
     private lateinit var hotSalesAdapter: HotSalesAdapter
     private lateinit var bestSellerAdapter: BestSellerAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
 
-        super.onCreate(savedInstanceState)
-        binding = ActivityHomeStoreBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentHomeStoreBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setButtons()
         setSpinnersStyle()
         initRcAdapters()
@@ -47,11 +49,10 @@ class HomeStoreActivity : AppCompatActivity() {
         observeFilterShowing()
         observeCartItemsCount()
         observeSwipeToRefresh()
-
     }
 
     private fun observeSwipeToRefresh() {
-        viewModel.isBestSellerLoading.observe(this) {
+        viewModel.isBestSellerLoading.observe(requireActivity()) {
             binding.swipeRefreshLayout.isRefreshing = it
         }
         binding.swipeRefreshLayout.setOnRefreshListener {
@@ -60,9 +61,9 @@ class HomeStoreActivity : AppCompatActivity() {
     }
 
     private fun observeCartItemsCount() {
-        viewModel.cartItemsCount.observe(this) {
-
-            binding.includedBottomTapBar.tvCartItemsCount.visibility = if (it != 0) View.VISIBLE else View.GONE
+        viewModel.cartItemsCount.observe(requireActivity()) {
+            binding.includedBottomTapBar.tvCartItemsCount.visibility =
+                if (it != 0) View.VISIBLE else View.GONE
             binding.includedBottomTapBar.tvCartItemsCount.text = it.toString()
         }
     }
@@ -107,15 +108,14 @@ class HomeStoreActivity : AppCompatActivity() {
         }
 
         binding.includedBottomTapBar.btnCart.setOnClickListener {
-            startActivity(Intent(this, CartActivity::class.java))
+            findNavController().navigate(R.id.action_homeStoreFragment_to_cartFragment)
         }
-
     }
 
 
     private fun setSpinnersStyle() {
         val locationSpinnerAdapter = ArrayAdapter.createFromResource(
-            this,
+            requireContext(),
             R.array.spinner_location_values,
             R.layout.spinner_location_text_style
         )
@@ -125,7 +125,7 @@ class HomeStoreActivity : AppCompatActivity() {
 
 
         val brandSpinnerAdapter = ArrayAdapter.createFromResource(
-            this,
+            requireContext(),
             R.array.spinner_filter_brand_values,
             R.layout.spinner_filter_text_style
         )
@@ -134,7 +134,7 @@ class HomeStoreActivity : AppCompatActivity() {
         binding.includedFilter.spinnerBrand.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
         val priceSpinnerAdapter = ArrayAdapter.createFromResource(
-            this,
+            requireContext(),
             R.array.spinner_filter_price_values,
             R.layout.spinner_filter_text_style
         )
@@ -143,99 +143,91 @@ class HomeStoreActivity : AppCompatActivity() {
         binding.includedFilter.spinnerPrice.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
         val sizeSpinnerAdapter = ArrayAdapter.createFromResource(
-            this,
+            requireContext(),
             R.array.spinner_filter_size_values,
             R.layout.spinner_filter_text_style
         )
         sizeSpinnerAdapter.setDropDownViewResource(R.layout.spinner_filter_text_style)
         binding.includedFilter.spinnerSize.adapter = sizeSpinnerAdapter
         binding.includedFilter.spinnerSize.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
-
-
     }
 
     private fun initRcAdapters() {
         binding.rcCategory.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         categoryAdapter = ButtonsCategoryAdapter(object : ButtonsCategoryAdapter.Listener {
             override fun onClick(id: Int) {
                 viewModel.selectCategory(id)
             }
         })
         binding.rcCategory.adapter = categoryAdapter
-
-
         binding.rcHotSales.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         hotSalesAdapter = HotSalesAdapter()
         binding.rcHotSales.adapter = hotSalesAdapter
 
         bestSellerAdapter = BestSellerAdapter(object : BestSellerAdapter.Listener {
             override fun onItemClick() {
-                startActivity(Intent(this@HomeStoreActivity, DetailsActivity::class.java))
+                findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
             }
-
         })
         binding.rcBestSeller.adapter = bestSellerAdapter
 
-        binding.rcBestSeller.layoutManager = GridLayoutManager(this, 2)
+        binding.rcBestSeller.layoutManager = GridLayoutManager(requireContext(), 2)
 
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.rcCategory)
         snapHelper.attachToRecyclerView(binding.rcHotSales)
     }
 
-
     private fun observeCategory() {
-        viewModel.buttonCategoriesState.observe(this) {
+        viewModel.buttonCategoriesState.observe(requireActivity()) {
             categoryAdapter.submitList(it)
         }
-
-
     }
 
     private fun observeHotSales() {
-        viewModel.hotSales.observe(this) {
+        viewModel.hotSales.observe(requireActivity()) {
             hotSalesAdapter.submitList(it)
         }
-        viewModel.isHotSalesLoading.observe(this) {
+        viewModel.isHotSalesLoading.observe(requireActivity()) {
             binding.pbarHotSales.visibility = if (it) View.VISIBLE else View.GONE
         }
     }
 
     private fun observeBestSeller() {
-        viewModel.bestSeller.observe(this) {
+        viewModel.bestSeller.observe(requireActivity()) {
             bestSellerAdapter.setList(it)
         }
-        viewModel.isBestSellerLoading.observe(this) {
+        viewModel.isBestSellerLoading.observe(requireActivity()) {
             binding.pbarBestSeller.visibility = if (it) View.VISIBLE else View.GONE
         }
     }
 
     private fun observeFilterShowing() {
-        viewModel.filterIsShown.observe(this) {
+        viewModel.filterIsShown.observe(requireActivity()) {
             if (it) {
                 binding.includedFilterLayout.visibility = View.VISIBLE
                 binding.includedFilterLayout.startAnimation(
                     AnimationUtils.loadAnimation(
-                        this,
+                        requireContext(),
                         R.anim.open_filter_anim
                     )
                 )
                 binding.includedToolbar.imgFilterToolbar.setImageDrawable(
                     ContextCompat.getDrawable(
-                        this,
+                        requireContext(),
                         R.drawable.ic_filter_touched
                     )
                 )
-
             } else {
-                val closeAnim = AnimationUtils.loadAnimation(this, R.anim.close_filter_anim)
+                val closeAnim =
+                    AnimationUtils.loadAnimation(requireContext(), R.anim.close_filter_anim)
                 closeAnim.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(p0: Animation?) {
                         binding.includedToolbar.imgFilterToolbar.setImageDrawable(
                             ContextCompat.getDrawable(
-                                this@HomeStoreActivity,
+                                requireContext(),
                                 R.drawable.ic_filter
                             )
                         )
@@ -250,8 +242,6 @@ class HomeStoreActivity : AppCompatActivity() {
                 binding.includedFilterLayout.startAnimation(closeAnim)
 
             }
-
-
         }
     }
 }

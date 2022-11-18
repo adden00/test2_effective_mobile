@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_background_color"
     android:orientation="vertical"
-    tools:context=".presentation.cart.CartActivity">
+    tools:context=".presentation.cart.CartFragment">
 
 
     <FrameLayout
