@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="12dp"
     app:cardCornerRadius="20dp"
-    app:cardElevation="10dp"
-    >
+    app:cardElevation="10dp">
 
     <ImageView
         android:id="@+id/imPhoneImage"
@@ -16,7 +15,6 @@
         android:adjustViewBounds="true"
         android:layout_margin="8dp"
         android:background="@color/white"
-        />
-
+        android:contentDescription="@string/phone_image" />
 
 </androidx.cardview.widget.CardView>

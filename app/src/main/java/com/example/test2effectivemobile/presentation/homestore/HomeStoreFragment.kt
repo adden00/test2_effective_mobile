@@ -123,7 +123,6 @@ class HomeStoreFragment : Fragment() {
         binding.includedToolbar.spinnerLocation.adapter = locationSpinnerAdapter
         binding.includedToolbar.spinnerLocation.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
 
-
         val brandSpinnerAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.spinner_filter_brand_values,
@@ -151,6 +150,7 @@ class HomeStoreFragment : Fragment() {
         binding.includedFilter.spinnerSize.adapter = sizeSpinnerAdapter
         binding.includedFilter.spinnerSize.setPopupBackgroundResource(R.drawable.spinner_poup_bg)
     }
+
 
     private fun initRcAdapters() {
         binding.rcCategory.layoutManager =
@@ -180,11 +180,13 @@ class HomeStoreFragment : Fragment() {
         snapHelper.attachToRecyclerView(binding.rcHotSales)
     }
 
+
     private fun observeCategory() {
         viewModel.buttonCategoriesState.observe(requireActivity()) {
             categoryAdapter.submitList(it)
         }
     }
+
 
     private fun observeHotSales() {
         viewModel.hotSales.observe(requireActivity()) {
@@ -195,6 +197,7 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
+
     private fun observeBestSeller() {
         viewModel.bestSeller.observe(requireActivity()) {
             bestSellerAdapter.setList(it)
@@ -203,6 +206,7 @@ class HomeStoreFragment : Fragment() {
             binding.pbarBestSeller.visibility = if (it) View.VISIBLE else View.GONE
         }
     }
+
 
     private fun observeFilterShowing() {
         viewModel.filterIsShown.observe(requireActivity()) {

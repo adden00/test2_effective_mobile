@@ -3,7 +3,5 @@
     style="@style/spinner_location_text_style"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="7dp"
-    >
-
+    android:padding="7dp">
 </TextView>

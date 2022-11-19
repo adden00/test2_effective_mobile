@@ -19,12 +19,9 @@
             android:id="@+id/included_toolbar"
             layout="@layout/home_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
+            android:layout_height="wrap_content"/>
 
     </FrameLayout>
-
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -33,27 +30,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/includedToolbarLayout"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/includedToolbarLayout">
 
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light_background_color"
-
-           >
+            android:background="@color/light_background_color">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
 
                 <TextView
                     android:id="@+id/tvSelectCategory"
@@ -76,7 +68,6 @@
                     app:layout_constraintBottom_toBottomOf="@+id/tvSelectCategory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvSelectCategory" />
-
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcCategory"
@@ -131,7 +122,6 @@
                         android:elevation="10dp"
                         android:src="@drawable/ic_search_qr" />
 
-
                 </FrameLayout>
 
                 <TextView
@@ -183,7 +173,6 @@
                     android:id="@+id/includedFilterLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rcHotSales">
@@ -249,10 +238,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/rcBestSeller" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
@@ -260,7 +249,6 @@
         android:id="@+id/includedBottomTapBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

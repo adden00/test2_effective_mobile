@@ -26,20 +26,19 @@
                 android:id="@+id/imPhoneImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/phone_image" />
-
+                android:contentDescription="@string/phone_image"
+                tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvPhoneName"
             style="@style/cart_phone_name_next"
-            android:text="@string/phone_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:layout_marginTop="4dp"
+            android:text="@string/phone_name"
             app:layout_constraintEnd_toStartOf="@+id/cardView3"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toTopOf="@+id/cardView2" />
@@ -47,16 +46,15 @@
         <TextView
             android:id="@+id/tvPrice"
             style="@style/cart_phone_name_next"
-            android:text="$"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:layout_marginBottom="4dp"
+            android:text="$"
             android:textColor="@color/primary_color"
             app:layout_constraintBottom_toBottomOf="@+id/cardView2"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             tools:ignore="HardcodedText" />
-
 
         <FrameLayout
             android:id="@+id/deleteFrame"
@@ -68,7 +66,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-
                 android:id="@+id/btnDeleteCartItem"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -79,14 +76,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_cart_delete_item"
-                android:contentDescription="@string/bucket" />
+                android:contentDescription="@string/bucket"
+                app:srcCompat="@drawable/ic_cart_delete_item" />
 
         </FrameLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="26dp"
@@ -115,8 +111,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_cart_minus"
-                        android:contentDescription="@string/minus" />
+                        android:contentDescription="@string/minus"
+                        android:src="@drawable/ic_cart_minus" />
                 </FrameLayout>
 
                 <TextView
@@ -143,15 +139,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_cart_plus"
-                        android:contentDescription="@string/plus" />
+                        android:contentDescription="@string/plus"
+                        android:src="@drawable/ic_cart_plus" />
                 </FrameLayout>
-
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

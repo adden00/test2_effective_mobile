@@ -24,7 +24,6 @@ class BestSellerAdapter(private val listener: Listener) :
         override fun areContentsTheSame(oldItem: BestSellerItem, newItem: BestSellerItem): Boolean {
             return oldItem == newItem
         }
-
     }) {
 
     private var curList = listOf<BestSellerItem>()

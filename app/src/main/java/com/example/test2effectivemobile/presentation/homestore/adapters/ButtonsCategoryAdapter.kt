@@ -28,8 +28,8 @@ class ButtonsCategoryAdapter(private val listener: Listener) :
         ): Boolean {
             return oldItem == newItem
         }
-
     }) {
+
     class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ButtonCategoryItemBinding.bind(view)
         fun setData(item: ButtonCategoryModel, listener: Listener) {

@@ -7,5 +7,4 @@ class LoadCartInfoUseCase(private val repository: StoreRepository) {
     suspend fun execute(): CartInfoItem? {
         return repository.loadCartInfo()
     }
-
 }

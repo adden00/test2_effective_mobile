@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-
         <TextView
             android:id="@+id/tvName"
             style="@style/product_details_header_text"
@@ -129,7 +128,6 @@
             app:layout_constraintStart_toStartOf="@+id/imProcessor"
             app:layout_constraintTop_toBottomOf="@+id/imProcessor" />
 
-
         <ImageView
             android:id="@+id/imCamera"
             android:layout_width="wrap_content"
@@ -153,7 +151,6 @@
             app:layout_constraintStart_toStartOf="@+id/imCamera"
             app:layout_constraintTop_toTopOf="@+id/tvProcessor" />
 
-
         <ImageView
             android:id="@+id/imRam"
             android:layout_width="wrap_content"
@@ -165,7 +162,6 @@
             app:layout_constraintTop_toTopOf="@+id/imProcessor"
             app:srcCompat="@drawable/ic_product_details_ram"
             android:contentDescription="@string/ram" />
-
 
         <TextView
             android:id="@+id/tvRam"
@@ -227,9 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cardCornerRadius="999dp"
-                app:cardElevation="0dp"
-
-                >
+                app:cardElevation="0dp">
 
                 <Button
                     android:id="@+id/btnProductDetailsColor1"
@@ -248,6 +242,7 @@
                     android:contentDescription="@string/selected" />
 
             </androidx.cardview.widget.CardView>
+
         </FrameLayout>
 
         <FrameLayout
@@ -262,7 +257,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tvSelectColorAndCap">
 
             <androidx.cardview.widget.CardView
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/secondary_color"
@@ -288,7 +282,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
         </FrameLayout>
 
         <Button
@@ -311,9 +304,7 @@
             android:id="@+id/button4"
             style="@style/product_details_memory_unselected"
             android:layout_width="71dp"
-
             android:layout_height="30dp"
-
             android:background="@drawable/button_transparent_bg"
             android:text="@string/_256gb"
             android:textAllCaps="false"
@@ -322,7 +313,6 @@
             app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
-
 
         <FrameLayout
             android:layout_width="0dp"
@@ -336,7 +326,6 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameColor1">
-
 
             <Button
                 android:id="@+id/btnAddToCart"
@@ -365,10 +354,7 @@
                 android:elevation="10dp"
                 android:text="@string/dollar" />
 
-
         </FrameLayout>
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

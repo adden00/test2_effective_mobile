@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
-    app:cardCornerRadius="30dp"
-    >
+    app:cardCornerRadius="30dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +13,12 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_marginTop="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <Button
                 android:id="@+id/btnClose"
@@ -29,8 +26,7 @@
                 android:layout_height="37dp"
                 android:layout_gravity="center_vertical|start"
                 android:background="@drawable/ic_close_filter"
-                android:layout_marginStart="28dp"
-                />
+                android:layout_marginStart="28dp" />
 
             <TextView
                 style="@style/filter_options_text"
@@ -56,6 +52,7 @@
                 android:layout_marginStart="20dp"
                 android:textAllCaps="false"
                 android:text="@string/done" />
+
         </LinearLayout>
 
         <TextView
@@ -75,7 +72,6 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="25dp"
-
             android:layout_marginBottom="8dp"
             android:background="@drawable/filter_spinner_bg"
             android:dropDownWidth="match_parent"
@@ -99,7 +95,6 @@
             android:background="@drawable/filter_spinner_bg"
             android:entries="@array/spinner_location_values"
             android:layout_marginTop="4dp"
-
             android:layout_marginBottom="8dp"/>
 
         <TextView
@@ -109,8 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="25dp"
-            android:text="@string/size"
-            />
+            android:text="@string/size" />
 
         <Spinner
             android:id="@+id/spinnerSize"
@@ -120,7 +114,6 @@
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="36dp"
             android:layout_marginTop="4dp"
-
             android:background="@drawable/filter_spinner_bg"
             android:entries="@array/spinner_location_values"/>
 

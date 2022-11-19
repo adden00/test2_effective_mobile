@@ -7,6 +7,4 @@ interface StoreRepository {
     suspend fun loadBestSeller(): List<BestSellerItem>
     suspend fun loadProductDetails(): ProductDetailsItem?
     suspend fun loadCartInfo(): CartInfoItem?
-
-
 }

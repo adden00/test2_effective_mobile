@@ -7,5 +7,4 @@ class LoadProductDetailsUseCase(private val repository: StoreRepository) {
     suspend fun execute(): ProductDetailsItem? {
         return repository.loadProductDetails()
     }
-
 }
