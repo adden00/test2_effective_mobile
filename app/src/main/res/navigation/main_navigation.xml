@@ -27,8 +27,8 @@
         <action
             android:id="@+id/action_splashFragment_to_homeStoreFragment"
             app:destination="@id/homeStoreFragment"
-            app:popUpTo="@navigation/main_navigation"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeStoreFragment"
