@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.test2effectivemobile.R
 import com.example.test2effectivemobile.databinding.FragmentCartBinding
 import com.google.android.material.snackbar.Snackbar
 
-class CartFragment : Fragment(R.layout.fragment_cart) {
+class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
     private lateinit var adapter: CartAdapter
     private val viewModel: CartViewModel by activityViewModels()
